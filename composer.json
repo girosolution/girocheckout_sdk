@@ -1,5 +1,5 @@
 {
-    "name": "girosolution/girocheckout_SDK",
+    "name": "girosolution/girocheckout_sdk",
     "description": "PHP development SDK for connections to GiroCheckout Payment Gateway",
     "require": {
         "php": "^5.2 || ^7.0"
