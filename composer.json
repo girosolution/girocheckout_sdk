@@ -1,0 +1,12 @@
+{
+    "name": "girosolution/girocheckout_SDK",
+    "description": "PHP development SDK for connections to GiroCheckout Payment Gateway",
+    "require": {
+        "php": "^5.2 || ^7.0"
+    },
+   "autoload": {
+     "psr-4": {
+       "girosolution\\girocheckout_SDK\\": "GiroCheckout_SDK/"
+     }
+   }
+}
