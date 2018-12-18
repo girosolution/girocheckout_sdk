@@ -1,12 +1,21 @@
 {
-    "name": "girosolution/girocheckout_sdk",
+    "name": "girosolution/girocheckout-sdk",
     "description": "PHP development SDK for connections to GiroCheckout Payment Gateway",
+    "type": "library",
     "require": {
-        "php": "^5.2 || ^7.0"
+        "php": "^5.2 || ^7.0 || ^7.1",
+        "ext-curl": "*"
     },
-   "autoload": {
-     "psr-4": {
-       "girosolution\\girocheckout_SDK\\": "GiroCheckout_SDK/"
-     }
-   }
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Michael Heumann",
+            "email": "michael.heumann@girosolution.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "girosolution\\GiroCheckout_SDK\\": "src/girocheckout-sdk/"
+        }
+    }
 }
