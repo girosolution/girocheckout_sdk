@@ -6,7 +6,7 @@
         "php": "^5.2 || ^7.0 || ^7.1",
         "ext-curl": "*"
     },
-    "license": "OSL-3.0",
+    "license": "OSL-3.0-or-later",
     "authors": [
         {
             "name": "Michael Heumann",
