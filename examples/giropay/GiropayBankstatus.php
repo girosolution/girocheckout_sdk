@@ -6,7 +6,8 @@
  * @package Samples
  * @version $Revision: 166 $ / $Date: 2016-08-31 13:35:30 -0300 (Wed, 31 Aug 2016) $
  */
-require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
+require '../vendor/autoload.php';
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
 
 /**
  * configuration of the merchants identifier, project and password

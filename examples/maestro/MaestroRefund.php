@@ -13,7 +13,8 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  * @package Samples
  * @version $Revision: 176 $ / $Date: 2017-01-09 13:29:27 -0300 (Mon, 09 Jan 2017) $
  */
-require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
+require '../vendor/autoload.php';
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
 
 /**
  * Configuration of the merchants identifier, project and password

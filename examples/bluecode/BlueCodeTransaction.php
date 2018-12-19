@@ -1,6 +1,9 @@
 <?php
 define('__GIROCHECKOUT_SDK_DEBUG__',true);
 
+require '../vendor/autoload.php';
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+
 /**
  * Sample code for GiroCheckout integration of a blue code transaction
  *
@@ -8,7 +11,6 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  * @package Samples
  * @version $Revision: 243 $ / $Date: 2018-07-18 13:24:34 -0400 (Wed, 18 Jul 2018) $
  */
-require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
 
 /**
  * Configuration of the merchants identifier, project and password

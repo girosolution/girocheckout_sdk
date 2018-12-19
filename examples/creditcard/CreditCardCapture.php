@@ -1,6 +1,9 @@
 <?php
 define('__GIROCHECKOUT_SDK_DEBUG__',true);
 
+require '../vendor/autoload.php';
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+
 /**
  * sample code for GiroCheckout integration of a credit card transaction
  *
@@ -13,7 +16,6 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  * @package Samples
  * @version $Revision: 156 $ / $Date: 2016-06-29 14:17:03 -0300 (Mi, 29 Jun 2016) $
  */
-require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
 
 /**
  * configuration of the merchants identifier, project and password
