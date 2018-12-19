@@ -54,12 +54,10 @@ SDK functionalities.
 | **credit card**                                              |                                       |                                                            |
 | [credit card payment](en:girocheckout:creditcard:start#initialise_credit_card_payment "wikilink") | creditCardTransaction                 | GiroCheckout\_SDK\_CreditCardTransaction()                 |
 | [get PKN](en:girocheckout:creditcard:start#pseudo_card_number_pkn "wikilink") | creditCardGetPKN                      | GiroCheckout\_SDK\_CreditCardGetPKN()                      |
-| [recurring credit card
-payment](en:girocheckout:creditcard:start#recurring_credit_card_payment "wikilink") | creditCardRecurringTransaction        | GiroCheckout\_SDK\_CreditCardRecurringTransaction()        |
+| [recurring credit card payment](en:girocheckout:creditcard:start#recurring_credit_card_payment "wikilink") | creditCardRecurringTransaction        | GiroCheckout\_SDK\_CreditCardRecurringTransaction()        |
 | [credit card void](en:girocheckout:creditcard:start#void "wikilink") | creditCardVoid                        | GiroCheckout\_SDK\_CreditCardVoid()                        |
 | **direct debit**                                             |                                       |                                                            |
-| [direct debit without payment
-page](en:girocheckout:directdebit:start#direct_debit_without_payment_page "wikilink") | directDebitTransaction                | GiroCheckout\_SDK\_DirectDebitTransaction()                |
+| [direct debit without payment page](en:girocheckout:directdebit:start#direct_debit_without_payment_page "wikilink") | directDebitTransaction                | GiroCheckout\_SDK\_DirectDebitTransaction()                |
 | [direct debit payment page](en:girocheckout:directdebit:start#initialise_direct_debit_payment_with_payment_page "wikilink") | directDebitTransactionWithPaymentPage | GiroCheckout\_SDK\_DirectDebitTransactionWithPaymentPage() |
 | [direct debit void](en:girocheckout:directdebit:start#void "wikilink") | directDebitVoid                       | GiroCheckout\_SDK\_DirectDebitVoid()                       |
 | **Maestro**                                                  |                                       |                                                            |
