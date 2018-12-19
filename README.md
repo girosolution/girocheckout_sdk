@@ -33,7 +33,7 @@ script. The folder "GiroCheckout\_SDK" contains the
 GiroCheckout\_SDK.php, which needs to be included in order to use the
 SDK functionalities.
 
-![SDK Folders](/../documentation/docfiles/SDK_git_folders.png?raw=true){:width="400px"}
+![SDK Folders](/../documentation/docfiles/SDK_git_folders.png?raw=true&s=350)
 
 ## List of all request types (Request & Notify)
 
