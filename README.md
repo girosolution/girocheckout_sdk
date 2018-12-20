@@ -17,7 +17,32 @@ GiroCheckout SDK is available both in composer compatible form and as a standalo
 
 Download the current standalone GiroCheckout PHP SDK [here](http://api.girocheckout.de/en:phpsdk:start).
 
-Find the instructions for the composer version further down in this document.
+Find the instructions for the composer version below.
+
+## Installation through composer
+
+In order for this to work, you need to install composer.  Please follow the instructions on the [Composer website](https://getcomposer.org/doc/00-intro.md) for this, but in a nutshell it's this (in a Linux or iOS environment):
+
+```bash
+# Install Composer
+curl -sS https://getcomposer.org/installer | php
+```
+
+You should then make it available globally:
+
+```bash
+mv composer.phar /usr/local/bin/composer
+```
+
+Remember to give the file execution permissions.
+
+Now, simply include GiroCheckout in your PHP project:
+
+```bash
+composer require girosolution/girocheckout-sdk
+```
+
+This will create a composer.json file in your project (if you don't already have one), add the lines necessary to include GiroCheckout and then download and install it in the vendor folder.
 
 ## __Important note regarding notify and redirect__
 
@@ -39,7 +64,7 @@ SDK functionalities.
 
 | API documentation                                            | Request type                          | Object name                                                |
 | ------------------------------------------------------------ | ------------------------------------- | ---------------------------------------------------------- |
-| **eps**                                                      |                                       |                                                            |
+| **eps**|
 | [check eps bank status](en:girocheckout:eps:start#check_bankstatus "wikilink") | epsBankstatus                         | GiroCheckout\_SDK\_EpsBankstatus()                         |
 | [eps issuer list](en:girocheckout:eps:start#eps_issuer_bank_request "wikilink") | epsIssuerList                         | GiroCheckout\_SDK\_EpsIssuerList()                         |
 | [eps transaction](en:girocheckout:eps:start#initialise_eps_payment "wikilink") | epsTransaction                        | GiroCheckout\_SDK\_EpsTransaction()                        |
@@ -81,8 +106,7 @@ SDK functionalities.
 
 ## Implementation of an API call
 
-This implementation example is based on the
-"examples/giropay/giropayTransction.php" file.
+This implementation example is based on the "examples/giropay/giropayTransaction.php" file.
 
 ### Load SDK
 
@@ -164,7 +188,7 @@ require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
 ```
 
-The file "autload.php" has to be included in an appropriate place, to use API functionalities. It is located inside the vendor folder created by composer.  So make sure the path to it is correct.
+As stated above, the file "autload.php" has to be included in an appropriate place, to use API functionalities. It is located inside the vendor folder created by composer.  So make sure the path to it is correct.
 
 You may also want to add a "use" statement for every GiroCheckout class you use.  GiroCheckout_SDK_Request will always be used at least. 
 
@@ -174,7 +198,7 @@ You may also want to add a "use" statement for every GiroCheckout class you use.
 $projectPassword = xxx;
 ```
 
-The password is provided in the [GiroCockpit](https://www.girocockpit.de). It is for the hash comparison, to ensure that GiroCheckout sends you Data. 
+The password is provided in the [GiroCockpit](https://www.girocockpit.de). It is used for the hash comparison, to ensure that the data is coming from GiroCheckout.
 
 ### Process notification
 
@@ -184,7 +208,126 @@ $notify->setSecret($projectPassword);
 $notify->parseNotification($_GET);
 ```
 
-The notification Object will work the same way as the Request Object. At  first it has to be instantiated with the transaction type ([list of all request types](http://api.girocheckout.de/en:phpsdk:phpsdk:request_types_list)) and configured with the password. 
+The notification object works the same way as the request object. First it has to be instantiated with the transaction type ([list of all request types](http://api.girocheckout.de/en:phpsdk:phpsdk:request_types_list)) and configured with the password. 
 
-Afterwards there has to be passed an array including the request params to the *parseNotification()* method.
+Afterwards an array needs to be passed to the *parseNotification()* method that holds the request parameters .
+
+### Handle notification
+
+```php
+if($notify->paymentSuccessful()) {
+  $notify->getResponseParam('gcReference');
+  $notify->getResponseParam('gcMerchantTxId');
+  $notify->getResponseParam('gcBackendTxId');
+  $notify->getResponseParam('gcAmount');
+  $notify->getResponseParam('gcCurrency');
+  $notify->getResponseParam('gcResultPayment');
+
+  if($notify->avsSuccessful()) {
+    $notify->getResponseParam('gcResultAVS');
+  }
+  
+  $notify->sendOkStatus();
+  exit;
+}
+else {
+  $notify->getResponseParam('gcReference');
+  $notify->getResponseParam('gcMerchantTxId');
+  $notify->getResponseParam('gcBackendTxId');
+  $notify->getResponseParam('gcResultPayment');
+
+  $notify->sendOkStatus();
+  exit;
+}
+```
+
+The method *paymentSuccessful()* returns true, if the payment has succeeded. In case of a giropay-ID transaction the method *avsSuccessful()* delivers the result of the age verification. Any response parameter can be obtained via the *getResponseParam()* method. 
+
+*sendOkStatus()*, *sendBadRequestStatus()* and *sendOtherStatus()* may be used to respond to the request by sending the appropriate header. 
+
+| HTTP status code  | Method                   | Description                                                  |
+| ----------------- | ------------------------ | ------------------------------------------------------------ |
+| 200 (OK)          | *sendOkStatus()*         | The notification was processed correctly.                    |
+| 400 (Bad Request) | *sendBadRequestStatus()* | The merchant did not process the notification and does not wish to be notified again. |
+| all others        | *sendOtherStatus()*      | The notification is repeated no more than 10 times every 30 minutes until the merchant returns the status code 200 or 400. |
+
+## Changing the Server Endpoint
+
+In special cases it may be necessary to access a different server for development and tests than the default <https://payment.girosolution.de>. Should you have received another endpoint URL from Girosolution, there is a way of overriding the default server. 
+
+You may do this in one of three ways:
+
+1) In your PHP Code: 
+
+```php
+apache_setenv( "GIROCHECKOUT_SERVER", "https://other.endpoint.de" );
+```
+
+2) On the Linux command line (e.g. for executing the SDK examples without a browser): 
+
+```bash
+export GIROCHECKOUT_SERVER=https://other.endpoint.de
+```
+
+3) In the Apache configuration (within the VirtualHost section): 
+
+```
+SetEnv GIROCHECKOUT_SERVER "https://other.endpoint.de"
+```
+
+## Operation via a proxy server
+
+It is possible to operate the server communication via a proxy, if your environment requires to do so. To implement this, include the following code and modify the parameters accordingly, before the GiroCheckout_SDK_Request::submit() function is  called: 
+
+```php
+$Config = GiroCheckout_SDK_Config::getInstance();
+$Config->setConfig('CURLOPT_PROXY', 'http://myproxy.com'):
+$Config->setConfig('CURLOPT_PROXYPORT', 9090);
+$Config->setConfig('CURLOPT_PROXYUSERPWD', 'myuser:mypasswd');
+```
+
+## Debugging
+
+The SDK offers the possibility of debugging an API call. In order to use this, you need to define a constant which has to be set to “true”: 
+
+```php
+define('__GIROCHECKOUT_SDK_DEBUG__',true);
+```
+
+Now the SDK will write a log file which is located in  “GiroCheckout_PHP_SDK/log” by default. The webserver needs to have write permissions to this folder. The debug mode should only be used while debugging issues and should be deactivated again afterwards for security and performance reasons. 
+
+### Accessing the logfile
+
+The logfile is organized into different sections: 
+
+| Section      | Description                                                | Common issues                |
+| ------------ | ---------------------------------------------------------- | ---------------------------- |
+| start        | Gives the timestamp when the script was loaded             |                              |
+| PHP ini      | Provides information about PHP, cURL and SSL               | cURL or SSL is not activated |
+| transaction  | Shows the used API call                                    |                              |
+| params set   | Shows any parameters that were given to the request object | parameters are missing       |
+| cURL request | Includes any parameters that are sent to GiroCheckout      |                              |
+| cURL reply   | cURL information about the server reply                    |                              |
+| reply params | Any parameters in the server's reply                       |                              |
+| notify input | Information about the notify call (parameters, timestamp)  |                              |
+| reply params | Information about the used reply method                    |                              |
+| exception    | Includes the error description                             |                              |
+
+### Set certificate file
+
+In a Windows server environment, it might happen that cURL is not able to validate the SSL certificate. In such a case, it is necessary to pass cURL a specific certificate file. The SDK provides the possibility of setting a local certificate file. For this, the following code is needed **before the $request→submit() method** is called: 
+
+```php
+$request->setSslCertFile('path/to/certificate');
+```
+
+For testing purposes, the certificate validation can be disabled. Please do not use this in your live environment.  
+
+```php
+$request->setSslVerifyDisabled();
+```
+
+
+
+## 
 
