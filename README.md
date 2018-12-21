@@ -45,6 +45,16 @@ composer require girosolution/girocheckout-sdk
 
 This will create a composer.json file in your project (if you don't already have one), add the lines necessary to include GiroCheckout and then download and install it in the vendor folder.
 
+## Update through composer
+
+If you already have a previous composer-based version of the SDK installed, you may update to the latest published version like this:
+
+```bash
+composer update
+```
+
+
+
 ## __Important note regarding notify and redirect__
 
 GiroCheckout uses two parallel channels for the communication between the GiroCheckout server and the Shop: The notification (or notify for short) and the redirect. The notify is a server to server call in the background, whereas the redirect runs over the customer's browser, showing him the transaction result at the end. Both paths must function separately and independently from each other, in case one of them doesn't reach its destination. This way, the transaction is also successful if the notification happens to not arrive at the shop for whatever reason (so only the redirect could be successful) or if the customer interrupts the redirection to the shop site (so only the notify gets through). But of course a check is required on both sides whether the order has already been processed in the shop, in order to avoid a duplicate processing.
