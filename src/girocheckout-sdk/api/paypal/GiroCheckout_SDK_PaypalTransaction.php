@@ -1,13 +1,16 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\api\paypal;
 
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+
 /**
  * Provides configuration for an PayPal API call.
  *
  * @package GiroCheckout
  * @version $Revision: 172 $ / $Date: 2016-10-17 22:56:02 -0300 (Mon, 17 Oct 2016) $
  */
-class GiroCheckout_SDK_PaypalTransaction extends GiroCheckout_SDK_AbstractApi{
+class GiroCheckout_SDK_PaypalTransaction extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.

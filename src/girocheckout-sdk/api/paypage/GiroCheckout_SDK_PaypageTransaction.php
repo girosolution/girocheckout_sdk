@@ -1,6 +1,9 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\api\paypage;
 
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+
 /**
  * Provides configuration for a Paypage API call.
  *

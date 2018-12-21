@@ -1,6 +1,9 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\api\giropay;
 
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+
 /**
  * Provides configuration for an giropay API call.
  *

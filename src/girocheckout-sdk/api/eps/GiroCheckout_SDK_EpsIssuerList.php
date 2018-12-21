@@ -1,13 +1,15 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\api\eps;
 
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
+
 /**
  * Provides configuration for an iDEAL API call.
  *
  * @package GiroCheckout
  * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
  */
-class GiroCheckout_SDK_EpsIssuerList extends GiroCheckout_SDK_AbstractApi{
+class GiroCheckout_SDK_EpsIssuerList extends GiroCheckout_SDK_AbstractApi {
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.

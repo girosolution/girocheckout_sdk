@@ -1,6 +1,9 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\api\paypage;
 
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+
 /**
  * Provides a list of available projects for consecutive Paypage transaction calls.
  *
