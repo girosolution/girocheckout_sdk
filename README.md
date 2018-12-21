@@ -63,11 +63,7 @@ Please also see [API Basics](http://api.girocheckout.de/en:girocheckout:general:
 
 ## Folders
 
-The folder "examples" includes any example script. Among them there is
-an example for every API call as well as a notification and a redirect
-script. The folder "GiroCheckout\_SDK" contains the
-GiroCheckout\_SDK.php, which needs to be included in order to use the
-SDK functionalities.
+The folder "examples" includes example scripts for all supported payment methods and API calls.  The folder "logos" contains the current logo images for all payment methods.
 
 <img src="https://github.com/girosolution/girocheckout_sdk/blob/documentation/docfiles/SDK_git_folders.png" width="400">
 
