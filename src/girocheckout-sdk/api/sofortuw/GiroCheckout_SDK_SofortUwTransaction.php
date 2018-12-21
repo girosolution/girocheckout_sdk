@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\sofortuw;
 
 /**
  * Provides configuration for a Sofortuw API call.

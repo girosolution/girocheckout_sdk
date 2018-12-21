@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\paypal;
 
 /**
  * Provides configuration for an PayPal API call.

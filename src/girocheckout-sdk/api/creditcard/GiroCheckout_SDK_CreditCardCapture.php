@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\creditcard;
 
 /**
  * Provides configuration for a credit card API call.

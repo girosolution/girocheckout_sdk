@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\bluecode;
 
 /**
  * Provides configuration for an BlueCode API call.

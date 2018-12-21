@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\ideal;
 
 /**
  * Provides configuration for an iDEAL API call.

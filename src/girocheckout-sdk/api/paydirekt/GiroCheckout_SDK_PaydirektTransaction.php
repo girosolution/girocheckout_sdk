@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\paydirekt;
 
 /**
  * Provides configuration for an Paydirekt API call.

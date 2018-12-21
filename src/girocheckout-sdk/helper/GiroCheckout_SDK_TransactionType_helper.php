@@ -1,45 +1,44 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\helper;
 
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_CreditCardTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_CreditCardCapture;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_CreditCardRefund;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_CreditCardGetPKN;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_CreditCardRecurringTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_CreditCardVoid;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_DirectDebitTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_DirectDebitGetPKN;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_DirectDebitTransactionWithPaymentPage;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_DirectDebitCapture;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_DirectDebitRefund;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_DirectDebitVoid;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiropayBankstatus;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiropayIDCheck;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiropayTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiropayIssuerList;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_IdealIssuerList;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_IdealPayment;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_IdealPaymentRefund;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaypalTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_EpsBankstatus;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_EpsTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_EpsIssuerList;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardTransaction;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardCapture;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardRefund;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardGetPKN;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardRecurringTransaction;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardVoid;
+use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitTransaction;
+use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitGetPKN;
+use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitTransactionWithPaymentPage;
+use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitCapture;
+use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitRefund;
+use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitVoid;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayBankstatus;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayIDCheck;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayTransaction;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayIssuerList;
+use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealIssuerList;
+use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPayment;
+use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPaymentRefund;
+use girosolution\GiroCheckout_SDK\api\paypal\GiroCheckout_SDK_PaypalTransaction;
+use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsBankstatus;
+use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsTransaction;
+use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsIssuerList;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_Tools_GetTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiroCodeCreatePayment;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiroCodeCreateEpc;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_GiroCodeGetEpc;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaydirektTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaydirektCapture;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaydirektRefund;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaydirektVoid;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_SofortUwTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_BlueCodeTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaypageTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_PaypageProjects;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_MaestroTransaction;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_MaestroCapture;
-use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_MaestroRefund;
+use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeCreatePayment;
+use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeCreateEpc;
+use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeGetEpc;
+use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektTransaction;
+use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektCapture;
+use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektRefund;
+use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektVoid;
+use girosolution\GiroCheckout_SDK\api\sofortuw\GiroCheckout_SDK_SofortUwTransaction;
+use girosolution\GiroCheckout_SDK\api\bluecode\GiroCheckout_SDK_BlueCodeTransaction;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageTransaction;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageProjects;
+use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroTransaction;
+use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroCapture;
+use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroRefund;
 
 /**
  * Helper class which manages api call instances
@@ -53,7 +52,7 @@ class GiroCheckout_SDK_TransactionType_helper {
    * Returns api call instance
    *
    * @param String api call name
-   * @return GiroCheckout_SDK_InterfaceApi
+   * @return object
    */
   public static function getTransactionTypeByName($transType) {
     switch ($transType) {

@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api;
+namespace girosolution\GiroCheckout_SDK\api\directdebit;
 
 /**
  * Provides configuration for an direct debit VOID API call.
