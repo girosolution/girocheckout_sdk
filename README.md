@@ -39,6 +39,7 @@ Remember to give the file execution permissions.
 Now, simply include GiroCheckout in your PHP project:
 
 ```bash
+composer clear-cache
 composer require girosolution/girocheckout-sdk
 ```
 
