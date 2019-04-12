@@ -182,8 +182,6 @@ class GiroCheckout_SDK_Request {
    * @throws GiroCheckout_SDK_Exception_helper
    */
   public function submit() {
-    $header = array();
-    $body = '';
     $Config = GiroCheckout_SDK_Config::getInstance();
 
     if ($Config->getConfig('DEBUG_MODE')) {
@@ -233,13 +231,13 @@ class GiroCheckout_SDK_Request {
       $response = GiroCheckout_SDK_Curl_helper::getJSONResponseToArray($body);
 
       if ($response['rc'] == 5000 || $response['rc'] == 5001) {
-        throw new GiroCheckout_SDK_Exception_helper('authentication failure, please double-check your project settings');
+        throw new GiroCheckout_SDK_Exception_helper('Authentication failure, please double-check your project settings', $response['rc'] );
       }
       elseif (!isset($header['hash'])) {
-        throw new GiroCheckout_SDK_Exception_helper('hash in response is missing');
+        throw new GiroCheckout_SDK_Exception_helper('Hash in response is missing', 5002);
       }
       elseif (isset($header['hash']) && $header['hash'] !== GiroCheckout_SDK_Hash_helper::getHMACMD5HashString($this->secret, $body)) {
-        throw new GiroCheckout_SDK_Exception_helper('hash mismatch in response');
+        throw new GiroCheckout_SDK_Exception_helper('Hash mismatch in response', 5002);
       }
       else {
         $this->response = $this->requestMethod->checkResponse($response);
@@ -248,8 +246,13 @@ class GiroCheckout_SDK_Request {
         }
       }
     }
-    catch (\Exception $e) {
-      throw new GiroCheckout_SDK_Exception_helper('Failure: ' . $e->getMessage() . "\n" . implode("\r\n", $header) . $body);
+    catch (Exception $e) {
+      if ($e instanceof GiroCheckout_SDK_Exception_helper) {
+         throw $e;
+      }
+      else {
+        throw new GiroCheckout_SDK_Exception_helper( 'Failure: ' . $e->getMessage() );
+      }
     }
 
     return TRUE;
