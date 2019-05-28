@@ -7,6 +7,7 @@ use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_Exception_helper;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_ResponseCode_helper;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_Hash_helper;
+use Exception;
 
 /**
  * Request class which manages API calls to GiroCheckout

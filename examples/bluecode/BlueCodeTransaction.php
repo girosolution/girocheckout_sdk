@@ -1,16 +1,14 @@
 <?php
 define('__GIROCHECKOUT_SDK_DEBUG__',true);
 
-require '../vendor/autoload.php';
-use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
-
 /**
  * Sample code for GiroCheckout integration of a blue code transaction
  *
  * @filesource
  * @package Samples
- * @version $Revision: 243 $ / $Date: 2018-07-18 13:24:34 -0400 (Wed, 18 Jul 2018) $
+ * @version $Revision: 259 $ / $Date: 2019-05-15 12:52:03 -0400 (Wed, 15 May 2019) $
  */
+require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
 
 /**
  * Configuration of the merchants identifier, project and password
@@ -29,10 +27,6 @@ try {
 	        ->addParam('merchantTxId', uniqid("", TRUE))
 	        ->addParam('amount',1500)
 	        ->addParam('currency','EUR')
-	        ->addParam('barcode','27324080')
-	        ->addParam('branch','default')
-	        ->addParam('slip', uniqid("", TRUE))   
-	        ->addParam('slipDateTime', date('Y-m-d\TH:i:sP'))
 	        ->addParam('purpose','Beispieltransaktion')
 	        ->addParam('urlRedirect','https://www.my-domain.de/girocheckout/redirect-creditcard')
 	        ->addParam('urlNotify','https://www.my-domain.de/girocheckout/redirect-creditcard')

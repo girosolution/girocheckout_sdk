@@ -143,6 +143,8 @@ class GiroCheckout_SDK_TransactionType_helper {
       //BlueCode apis
       case 'blueCodeTransaction':
         return new GiroCheckout_SDK_BlueCodeTransaction();
+      case 'blueCodeRefund':
+        return new GiroCheckout_SDK_BlueCodeRefund();
 
       //Payment page apis
       case 'paypageTransaction':
