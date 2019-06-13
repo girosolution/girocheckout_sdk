@@ -2,7 +2,7 @@
 define('__GIROCHECKOUT_SDK_DEBUG__',true);
 
 /**
- * Sample code for GiroCheckout integration of a blue code transaction
+ * Sample code for GiroCheckout integration of a bluecode transaction
  *
  * @filesource
  * @package Samples

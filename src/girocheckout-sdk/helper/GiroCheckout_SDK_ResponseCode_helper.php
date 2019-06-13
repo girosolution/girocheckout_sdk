@@ -41,7 +41,7 @@ class GiroCheckout_SDK_ResponseCode_helper {
       4503 => 'Doppelte Transaktion',
       4504 => 'Manipulationsverdacht oder Zahlungsmittel temporär gesperrt',
       4505 => 'Zahlungsmittel gesperrt oder abgelehnt',
-      4506 => 'Blue Code Barcode ungültig',
+      4506 => 'Bluecode Barcode ungültig',
       4900 => 'Transaktion nicht erfolgreich',
       // GiroCheckout API rc
       5000 => 'Authentifizierung fehlgeschlagen',
@@ -195,7 +195,7 @@ class GiroCheckout_SDK_ResponseCode_helper {
       4503 => 'duplicate transaction',
       4504 => 'suspicion of manipulation or payment method temporarily blocked',
       4505 => 'payment method blocked or rejected',
-      4506 => 'invalid Blue Code barcode',
+      4506 => 'invalid Bluecode barcode',
       4900 => 'transaction rejected',
       // GiroCheckout API rc
       5000 => 'authentication failed',
