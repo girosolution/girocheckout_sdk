@@ -79,6 +79,10 @@ class GiroCheckout_SDK_Request {
         throw new GiroCheckout_SDK_Exception_helper('Failure: API call method unknown');
       }
     }
+
+    if( !function_exists("curl_exec") ) {
+      throw new GiroCheckout_SDK_Exception_helper('Failure: curl_exec not available or disabled in PHP, this function is required');
+    }
   }
 
   /**
