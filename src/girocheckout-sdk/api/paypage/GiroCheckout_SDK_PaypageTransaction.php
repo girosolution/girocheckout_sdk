@@ -41,6 +41,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'projectlist' => FALSE,
         'pkn' => FALSE,
         'test' => TRUE,
+        'certdata' => FALSE,
         'paydirektShippingFirstName' => FALSE,
         'paydirektShippingLastName' => FALSE,
         'paydirektShippingZipCode' => FALSE,

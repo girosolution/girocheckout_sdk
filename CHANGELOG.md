@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.27 - 21.08.2019
+- Added parameter certdata for donation certificate in paypage service.
+- New call for paypage donation certificate implemented.
+
 #### 2.2.26 - 09.07.2019
 - Corrected Bluecode spelling
 - Added check if function curl_exec is present and enabled
