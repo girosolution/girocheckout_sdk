@@ -20,6 +20,7 @@ use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayIssuerList
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealIssuerList;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPayment;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPaymentRefund;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageDonationcert;
 use girosolution\GiroCheckout_SDK\api\paypal\GiroCheckout_SDK_PaypalTransaction;
 use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsBankstatus;
 use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsTransaction;
@@ -151,6 +152,8 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_PaypageTransaction();
       case 'paypageProjects':
         return new GiroCheckout_SDK_PaypageProjects();
+      case 'paypageDonationCert':
+        return new GiroCheckout_SDK_PaypageDonationcert();
 
       //Maestro apis
       case 'maestroTransaction':
