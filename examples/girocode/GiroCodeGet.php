@@ -9,6 +9,7 @@
  */
 require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * configuration of the merchants identifier, project and password
@@ -20,7 +21,7 @@ $projectPassword = "";  // Your project password
 
 /* get a reference for a GiroCode Payment transaction */
 try {
-	$request = new GiroCheckout_SDK_Request('giroCodeGetEpc');
+	$request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROCODE_GET_EPC );
 	$request->setSecret($projectPassword);
 	$request->addParam('merchantId',$merchantID)
 	        ->addParam('projectId',$projectID)

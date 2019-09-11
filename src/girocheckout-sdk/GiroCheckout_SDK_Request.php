@@ -86,6 +86,20 @@ class GiroCheckout_SDK_Request {
   }
 
   /**
+   * Return the logo filename for the current payment method.
+   *
+   * @param integer $p_iSize Desired size of logo in pixels (40, 50, 60)
+   * @return string Filename
+   * @throws GiroCheckout_SDK_Exception_helper
+   */
+  public function getPaymethodLogo( $p_iSize ) {
+    if (is_null($this->requestMethod)) {
+      throw new GiroCheckout_SDK_Exception_helper('Failure: API call method unknown');
+    }
+    return $this->requestMethod->getLogoFilename( $p_iSize );
+  }
+
+  /**
    * Adds a key value pair to the params variable. Used to fill the request with data.
    *
    * @param String $param key

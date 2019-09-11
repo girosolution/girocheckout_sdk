@@ -15,6 +15,7 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  */
 require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * configuration of the merchants identifier, project and password
@@ -41,7 +42,7 @@ if( !isset($mode) ) {
     $oCart->addItem( "Bobbycar", 3, 2599, "800001303" );
     $oCart->addItem( "Helm", 1, 1853 );
 
-    $request = new GiroCheckout_SDK_Request('paydirektTransaction');
+    $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYDIREKT_TRANSACTION );
     $request->setSecret($projectPassword);
     $request->addParam('merchantId',$merchantID)
             ->addParam('projectId',$projectID)
@@ -98,7 +99,7 @@ elseif( $mode == "cap" ) {
 
   /* init giropay transaction and parameters */
   try {  
-    $request = new GiroCheckout_SDK_Request('paydirektCapture');
+    $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYDIREKT_CAPTURE );
     $request->setSecret($projectPassword);
     $request->addParam('merchantId',$merchantID)
             ->addParam('projectId',$projectID)

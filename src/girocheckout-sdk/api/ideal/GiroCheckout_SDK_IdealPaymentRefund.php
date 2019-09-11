@@ -3,6 +3,8 @@ namespace girosolution\GiroCheckout_SDK\api\ideal;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Provides configuration for an iDEAL API call.
@@ -11,6 +13,9 @@ use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
  * @version $Revision: 138 $ / $Date: 2016-04-27 12:23:07 -0300 (Wed, 27 Apr 2016) $
  */
 class GiroCheckout_SDK_IdealPaymentRefund extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_IDEAL;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_IDEAL_REFUND;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.

@@ -3,6 +3,8 @@ namespace girosolution\GiroCheckout_SDK\api\maestro;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Provides configuration for an credit card API call.
@@ -11,6 +13,9 @@ use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
  */
 
 class GiroCheckout_SDK_MaestroTransaction extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_MAESTRO;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_MAESTRO_TRANSACTION;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.

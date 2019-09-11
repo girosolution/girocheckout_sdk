@@ -3,6 +3,8 @@ namespace girosolution\GiroCheckout_SDK\api\paypage;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Received the data for the donation certificate (Spendenbescheinigung) related to a recente donation.
@@ -10,7 +12,11 @@ use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
  * @package GiroCheckout
  * @version $Revision: 269 $ / $Date: 2019-08-21 13:19:42 -0400 (Wed, 21 Aug 2019) $
  */
+
 class GiroCheckout_SDK_PaypageDonationcert extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYPAGE;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYPAGE_DONATIONCERT;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.

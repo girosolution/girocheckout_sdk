@@ -3,6 +3,7 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
 
 require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * sample code for GiroCheckout integration of a credit card transaction
@@ -37,7 +38,7 @@ if( isset($_GET["ref"]) ) {
 if( !isset($mode) ) {
   /* init cc transaction an parameters */
   try {
-    $request = new GiroCheckout_SDK_Request('creditCardTransaction');
+    $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_CREDITCARD_TRANSACTION );
     $request->setSecret($projectPassword);
     $request->addParam('merchantId',$merchantID)
             ->addParam('projectId',$projectID)
@@ -83,7 +84,7 @@ elseif( $mode == "cap" ) {
   // will end script execution.  You may execute it manually in a separate script.
   if( !empty($strReference) ) {
     try {
-      $request = new GiroCheckout_SDK_Request('creditCardCapture');
+      $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_CREDITCARD_CAPTURE );
       $request->setSecret($projectPassword);
       $request->addParam('merchantId',$merchantID)
               ->addParam('projectId',$projectID)

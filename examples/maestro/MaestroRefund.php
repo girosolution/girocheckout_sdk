@@ -15,6 +15,7 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  */
 require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Configuration of the merchants identifier, project and password
@@ -36,7 +37,7 @@ if( isset($_GET["ref"]) ) {
 if( !isset($mode) ) {
   /* init maestro transaction and parameters */
   try {
-    $request = new GiroCheckout_SDK_Request('maestroTransaction');
+    $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_MAESTRO_TRANSACTION );
     $request->setSecret($projectPassword);
     $request->addParam('merchantId',$merchantID)
             ->addParam('projectId',$projectID)
@@ -79,7 +80,7 @@ elseif( $mode == "ref" ) {
   
   if( !empty($strReference) ) {
     try {
-      $request = new GiroCheckout_SDK_Request('maestroRefund');
+      $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_MAESTRO_REFUND );
       $request->setSecret($projectPassword);
       $request->addParam('merchantId',$merchantID)
               ->addParam('projectId',$projectID)

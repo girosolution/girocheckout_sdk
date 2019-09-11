@@ -8,7 +8,9 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  * @package Samples
  * @version $Revision: 259 $ / $Date: 2019-05-15 12:52:03 -0400 (Wed, 15 May 2019) $
  */
-require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
+require '../vendor/autoload.php';
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Configuration of the merchants identifier, project and password
@@ -20,7 +22,7 @@ $projectPassword = "";  // Your project password
 
 /* init giropay transaction and parameters */
 try {
-	$request = new GiroCheckout_SDK_Request('blueCodeTransaction');
+	$request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_BLUECODE_TRANSACTION );
 	$request->setSecret($projectPassword);
 	$request->addParam('merchantId',$merchantID)
 	        ->addParam('projectId',$projectID)

@@ -1,6 +1,8 @@
 <?php
 namespace girosolution\GiroCheckout_SDK\api;
 
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
+
 /**
  * Abstract API class for all GiroCheckout API calls.
  * Provides most of the interfaces functions. A new payment method should use this class.
@@ -20,6 +22,9 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
   protected $paymentSuccessfulCode;
   protected $avsSuccessfulCode;
   protected $notifyHashName;
+
+  protected $m_iPayMethod;  // ID that identifies payment method (only used to select correct logo)
+  protected $m_strTransType;  // String that identifies the specific transaction type
 
   /**
    * For development use only
@@ -234,5 +239,51 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
   public function validateParams($p_aParams, &$p_strError) {
     $p_strError = "";
     return TRUE;
+  }
+
+  /**
+   * Return the filename of the logo for this payment method.
+   *
+   * @param integer $p_iSize Logo size (40, 50 or 60)
+   * @return string Filename or empty string if no logo available.
+   */
+  public function getLogoFilename( $p_iSize ) {
+    if( !in_array( $p_iSize, array(40, 50, 60) ) ) {
+      return "";
+    }
+
+    switch( $this->m_iPayMethod ) {
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_AVS_PAYMENT:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_AVS:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_KVS:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_INVOICE:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_DONATE:
+        return "Logo_giropay_{$p_iSize}_px.jpg";
+
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_EPS:
+        return "Logo_eps_{$p_iSize}_px.jpg";
+
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT_CHECKED:
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT_GUARANTEE:
+        return "Logo_EC_{$p_iSize}_px.png";
+
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROCREDITCARD:
+        return "visa_msc_amex_{$p_iSize}px.png";  // Usually better obtained through GiroCheckout_SDK_Tools::getCreditCardLogoName()
+
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_IDEAL:
+        return "Logo_iDeal_{$p_iSize}_px.png";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT:
+        return "Logo_paydirekt_{$p_iSize}_px.jpg";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_BLUECODE:
+        return "Logo_bluecode_{$p_iSize}_px.png";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_SOFORTUW:
+        return "Logo_sofort_{$p_iSize}_px.png";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_MAESTRO:
+        return "Logo_maestro_{$p_iSize}_px.png";
+      default:
+        return "";
+    }
   }
 }

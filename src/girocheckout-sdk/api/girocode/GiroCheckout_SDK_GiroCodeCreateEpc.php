@@ -3,6 +3,8 @@ namespace girosolution\GiroCheckout_SDK\api\girocode;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Provides configuration for an direct debit API call.
@@ -12,6 +14,9 @@ use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
  */
 
 class GiroCheckout_SDK_GiroCodeCreateEpc extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+
+  protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROCODEEPC_BASIC;
+  protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROCODE_CREATE_EPC;
 
   /*
    * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.

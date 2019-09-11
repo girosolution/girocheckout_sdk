@@ -13,6 +13,7 @@
  */
 require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Configuration of the merchants identifier, project and password
@@ -34,7 +35,7 @@ if( isset($_GET["ref"]) ) {
 if( !isset($mode) ) {
   /* STEP 1: init iDEAL SALE transaction and parameters */
   try {
-    $request = new GiroCheckout_SDK_Request('idealPayment');
+    $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_IDEAL_PAYMENT );
     $request->setSecret($projectPassword);
     $request->addParam('merchantId',$merchantID)
         ->addParam('projectId',$projectID)
@@ -82,7 +83,7 @@ elseif( $mode == "ref" ) {
 
     // init giropay transaction and parameters
     try {  
-      $request = new GiroCheckout_SDK_Request('idealRefund');
+      $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_IDEAL_REFUND );
       $request->setSecret($projectPassword);
       $request->addParam('merchantId',$merchantID)
               ->addParam('projectId',$projectID)

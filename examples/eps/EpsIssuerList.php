@@ -8,6 +8,7 @@
  */
 require '../vendor/autoload.php';
 use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * configuration of the merchants identifier, project and password
@@ -20,7 +21,7 @@ $projectPassword = "";
 
 /* init eps issuer list request */
 try {
-	$request = new GiroCheckout_SDK_Request('epsIssuerList');
+	$request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_EPS_ISSUERLIST );
 	$request->setSecret($projectPassword);
 	$request->addParam('merchantId',$merchantID)
 		    ->addParam('projectId',$projectID)

@@ -3,6 +3,8 @@ namespace girosolution\GiroCheckout_SDK\api\paydirekt;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * Provides configuration for an Paydirekt API call.
@@ -10,8 +12,11 @@ use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
  * @package GiroCheckout
  * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
  */
-class GiroCheckout_SDK_PaydirektTransaction extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi
-{
+class GiroCheckout_SDK_PaydirektTransaction extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+
+  protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT;
+  protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYDIREKT_TRANSACTION;
+
   /*
    * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
    * For further information use the API documentation.

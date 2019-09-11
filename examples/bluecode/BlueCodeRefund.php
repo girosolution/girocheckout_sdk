@@ -13,7 +13,9 @@ define('__GIROCHECKOUT_SDK_DEBUG__',true);
  * @package Samples
  * @version $Revision: 260 $ / $Date: 2019-05-20 13:35:12 -0400 (Mon, 20 May 2019) $
  */
-require_once '../../GiroCheckout_SDK/GiroCheckout_SDK.php';
+require '../vendor/autoload.php';
+use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Request;
+use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
  * configuration of the merchants identifier, project and password
@@ -35,7 +37,7 @@ if( isset($_GET["ref"]) ) {
 if( !isset($mode) ) {
   /* STEP 1: init Bluecode SALE transaction and parameters */
   try {
-    $request = new GiroCheckout_SDK_Request('blueCodeTransaction');
+    $request = new GiroCheckout_SDK_Request( GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_BLUECODE_TRANSACTION );
     $request->setSecret($projectPassword);
     $request->addParam('merchantId',$merchantID)
             ->addParam('projectId',$projectID)
@@ -86,7 +88,7 @@ elseif( $mode == "ref" ) {
 
     /* init giropay transaction and parameters */
     try {
-      $request = new GiroCheckout_SDK_Request('blueCodeRefund');
+      $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_BLUECODE_REFUND );
       $request->setSecret($projectPassword);
       $request->addParam('merchantId',$merchantID)
               ->addParam('projectId',$projectID)
