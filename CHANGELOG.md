@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.28 - 11.09.2019
+- Provides a function to obtain the payment method logo name
+- Introduces constants for the transaction types
+
 #### 2.2.27 - 21.08.2019
 - Added parameter certdata for donation certificate in paypage service.
 - New call for paypage donation certificate implemented.
