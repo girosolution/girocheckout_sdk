@@ -47,6 +47,13 @@ class GiroCheckout_SDK_Tools {
     return $logoName;
   }
 
+  /**
+   * Build filename for logo for the specified payment method.
+   *
+   * @param integer $p_iPaymentMethod Payment method ID (see constants in GiroCheckout_SDK_Config)
+   * @param integer $p_iSize Image size (height in pixels, may be 40, 50 or 60)
+   * @return string Filename of logo file, prepend its folder path before use.
+   */
   public static function getPaymentLogoFilename( $p_iPaymentMethod, $p_iSize ) {
     if( !in_array( $p_iSize, array(40, 50, 60) ) ) {
       return "";
