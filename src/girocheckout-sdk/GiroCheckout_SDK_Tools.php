@@ -80,7 +80,7 @@ class GiroCheckout_SDK_Tools {
         return "visa_msc_amex_{$p_iSize}px.png";  // Usually better obtained through GiroCheckout_SDK_Tools::getCreditCardLogoName()
 
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_IDEAL:
-        return "Logo_iDeal_{$p_iSize}_px.png";
+        return "Logo_iDeal_{$p_iSize}_px.jpg";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT:
         return "Logo_paydirekt_{$p_iSize}_px.jpg";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_BLUECODE:
