@@ -7,6 +7,8 @@ use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardRefu
 use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardGetPKN;
 use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardRecurringTransaction;
 use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardVoid;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardInitform;
+use girosolution\GiroCheckout_SDK\api\creditcard\GiroCheckout_SDK_CreditCardFinalizeform;
 use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitTransaction;
 use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitGetPKN;
 use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitTransactionWithPaymentPage;
@@ -56,6 +58,8 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_CREDITCARD_GETPKN       = "creditCardGetPKN";
   const TRANS_TYPE_CREDITCARD_RECURRING    = "creditCardRecurringTransaction";
   const TRANS_TYPE_CREDITCARD_VOID         = "creditCardVoid";
+  const TRANS_TYPE_CREDITCARD_INITFORM     = "creditCardInitform";
+  const TRANS_TYPE_CREDITCARD_FINALIZEFORM = "creditCardFinalizeform";
 
   const TRANS_TYPE_DIRECTDEBIT_TRANSACTION = "directDebitTransaction";
   const TRANS_TYPE_DIRECTDEBIT_GETPKN      = "directDebitGetPKN";
@@ -124,6 +128,10 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_CreditCardRecurringTransaction();
       case self::TRANS_TYPE_CREDITCARD_VOID:
         return new GiroCheckout_SDK_CreditCardVoid();
+      case self::TRANS_TYPE_CREDITCARD_INITFORM:
+        return new GiroCheckout_SDK_CreditCardInitform();
+      case self::TRANS_TYPE_CREDITCARD_FINALIZEFORM:
+        return new GiroCheckout_SDK_CreditCardFinalizeform();
 
       //direct debit apis
       case self::TRANS_TYPE_DIRECTDEBIT_TRANSACTION:

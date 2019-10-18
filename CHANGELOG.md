@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.29 - 18.10.2019
+- Added support for the new credit card iframe form calls initform and finalizeform
+
 #### 2.2.28 - 11.09.2019
 - Provides a function to obtain the payment method logo name
 - Introduces constants for the transaction types
