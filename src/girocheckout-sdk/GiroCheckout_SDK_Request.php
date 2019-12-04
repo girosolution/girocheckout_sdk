@@ -1,6 +1,7 @@
 <?php
 namespace girosolution\GiroCheckout_SDK;
 
+use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_Debug_helper;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_Curl_helper;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
@@ -43,6 +44,7 @@ class GiroCheckout_SDK_Request {
 
   /**
    * Stores the api call request method object
+   * @var  GiroCheckout_SDK_AbstractApi $requestMethod
    */
   private $requestMethod;
 
@@ -191,6 +193,16 @@ class GiroCheckout_SDK_Request {
     }
     $this->secret = $secret;
     return $this;
+  }
+
+  /**
+   * Set URL to post requests to dev.girosolution.de.
+   * This can be used when the method of changing the apache environment variable
+   * GIROCHECKOUT_SERVER isn't applicable.
+   * Call before submit.
+   */
+  public function setDevServer() {
+    $this->requestMethod->setDevServer();
   }
 
   /**
