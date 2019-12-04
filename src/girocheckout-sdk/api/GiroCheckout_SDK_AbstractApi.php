@@ -165,6 +165,18 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
   }
 
   /**
+   * Set URL to post requests to dev.girosolution.de.
+   * This can be used when the method of changing the apache environment variable
+   * GIROCHECKOUT_SERVER isn't applicable.
+   * Call before submit.
+   */
+  public function setDevServer() {
+    $url = parse_url($this->requestURL);
+    $strDevUrl = "https://dev/girosolution.de/";
+    $this->requestURL = $strDevUrl . $url['path'];
+  }
+
+  /**
    * Returns the API needs a notify URL, where the transaction result has to be sent to.
    *
    * @return String notifyURL
