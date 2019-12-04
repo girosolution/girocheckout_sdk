@@ -18,6 +18,7 @@ class GiroCheckout_SDK_Curl_helper {
    * @param String url where data has to be sent to
    * @param mixed[] array data which has to be sent
    * @return array body of the response
+   * @throws \Exception
    */
   public static function submit($url, $params) {
     $Config = GiroCheckout_SDK_Config::getInstance();
@@ -80,7 +81,7 @@ class GiroCheckout_SDK_Curl_helper {
     if($Config->getConfig('DEBUG_MODE')) { GiroCheckout_SDK_Debug_helper::getInstance()->logReply($result, curl_error($ch)); }
 
     if($result === false) {
-      throw new Exception('cURL: submit failed.');
+      throw new \Exception('cURL: submit failed.');
     }
 
     curl_close($ch);

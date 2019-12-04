@@ -172,7 +172,7 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
    */
   public function setDevServer() {
     $url = parse_url($this->requestURL);
-    $strDevUrl = "https://dev/girosolution.de/";
+    $strDevUrl = "https://dev.girosolution.de/";
     $this->requestURL = $strDevUrl . $url['path'];
   }
 
