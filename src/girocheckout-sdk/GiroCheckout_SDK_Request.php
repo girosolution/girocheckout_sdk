@@ -44,19 +44,20 @@ class GiroCheckout_SDK_Request {
 
   /**
    * Stores the api call request method object
-   * @var  GiroCheckout_SDK_AbstractApi $requestMethod
+   * @var GiroCheckout_SDK_AbstractApi $requestMethod
    */
   private $requestMethod;
 
   /**
    * instantiates request
    *
-   * a request method instance has to be passed (see examples section)
+   * A request method instance has to be passed (see examples section)
    *
-   * @param  object/String $apiCallMethod
+   * @param GiroCheckout_SDK_AbstractApi/String $apiCallMethod
+   * @param boolean $bUseDevServer Use development server instead of live server for request, Default FALSE.
    * @throws GiroCheckout_SDK_Exception_helper
    */
-  public function __construct($apiCallMethod) {
+  public function __construct($apiCallMethod, $bUseDevServer = FALSE) {
     $Config = GiroCheckout_SDK_Config::getInstance();
 
     if (is_object($apiCallMethod)) {
@@ -79,6 +80,10 @@ class GiroCheckout_SDK_Request {
 
       if (is_null($this->requestMethod)) {
         throw new GiroCheckout_SDK_Exception_helper('Failure: API call method unknown');
+      }
+
+      if( $bUseDevServer ) {
+        $this->requestMethod->setDevServer();
       }
     }
 
