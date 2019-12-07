@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.30b - 07.12.2019
+- Added parameter to Request class to allow for easier use of development server.
+- Fixed Paydirekt cart class to make sure numeric values are not returned as strings in the JSON.
+
 #### 2.2.29 - 18.10.2019
 - Added support for the new credit card iframe form calls initform and finalizeform
 

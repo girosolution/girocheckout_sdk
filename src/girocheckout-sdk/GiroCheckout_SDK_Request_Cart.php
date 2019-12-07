@@ -52,7 +52,7 @@ class GiroCheckout_SDK_Request_Cart {
       return json_encode($this->m_aItems);
     }
     else {
-      return json_encode($this->m_aItems, JSON_UNESCAPED_UNICODE);
+      return json_encode($this->m_aItems, JSON_UNESCAPED_UNICODE | JSON_NUMERIC_CHECK);
     }
   }
 }
