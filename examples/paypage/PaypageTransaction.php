@@ -45,7 +45,7 @@ try {
 	        ->addParam('description','API-Aufruf zum Test')
 	        ->addParam('organization','Mustermann Tester GbR')
           ->addParam('projectlist', json_encode(array("Startprojekt", "Projekt 2", "Projekt X")))
-          //->addParam('otherpayments', json_encode(array( array("ZahlartId"=>14, "Link" => "https://www.paypal.de", "Position" => 10), array("ZahlartId"=>11, "Link" => "https://www.visa.com", "Position" => 2) )))
+          //->addParam('otherpayments', json_encode(array( array("id"=>14, "url" => "https://www.paypal.de", "position" => 10), array("id"=>11, "url" => "https://www.visa.com", "position" => 2) )))
 	        ->addParam('locale','de')
 	        ->addParam('test',1)
 	        ->addParam('certdata',1)  // Optional to request certificate data
