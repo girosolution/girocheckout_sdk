@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.31 - 17.01.2020
+- Added support for parameter otherpayments. 
+
 #### 2.2.30b - 07.12.2019
 - Added parameter to Request class to allow for easier use of development server.
 - Fixed Paydirekt cart class to make sure numeric values are not returned as strings in the JSON.
