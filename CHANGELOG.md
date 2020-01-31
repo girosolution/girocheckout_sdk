@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-#### 2.2.31.2 - 30.01.2020
+#### 2.2.31.3 - 30.01.2020
 - Added Paypal logo
 
 #### 2.2.31.1 - 30.01.2020
