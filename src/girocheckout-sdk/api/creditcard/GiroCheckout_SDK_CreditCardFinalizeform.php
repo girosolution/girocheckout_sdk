@@ -50,6 +50,15 @@ class GiroCheckout_SDK_CreditCardFinalizeform extends GiroCheckout_SDK_AbstractA
         'gcAmount' => TRUE,
         'gcCurrency' => TRUE,
         'gcResultPayment' => TRUE,
+        // optional fields for donation certificate:
+        'company'         => FALSE,
+        'lastname'        => FALSE,
+        'firstname'       => FALSE,
+        'address'         => FALSE,
+        'zip'             => FALSE,
+        'city'            => FALSE,
+        'country'         => FALSE,
+        'email'           => FALSE,
         'gcHash' => TRUE,
     );
     /*
