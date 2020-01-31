@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.31a - 30.01.2020
+- Spelling corrections in error messages
+
 #### 2.2.31 - 17.01.2020
 - Added support for parameter otherpayments. 
 
