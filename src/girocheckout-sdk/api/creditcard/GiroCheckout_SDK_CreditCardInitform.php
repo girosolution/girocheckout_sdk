@@ -46,6 +46,7 @@ class GiroCheckout_SDK_CreditCardInitform extends GiroCheckout_SDK_AbstractApi i
         'reference' => FALSE,
         'clientSession' => FALSE,
         'clientConfiguration' => FALSE,
+        'baseUrl' => FALSE,
     );
 
     /*
