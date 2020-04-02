@@ -47,6 +47,7 @@ class GiroCheckout_SDK_CreditCardFinalizeform extends GiroCheckout_SDK_AbstractA
       'redirect' => FALSE,
       'backendTxId' => FALSE,
       'resultPayment' => FALSE,
+    	'ppredirect' => FALSE,
     );
 
     /*

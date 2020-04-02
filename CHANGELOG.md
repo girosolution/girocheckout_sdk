@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-#### 2.2.31.7 - 17.03.2020
+#### 2.2.31.8 - 02.04.2020
 - Added Paypal logo
 - Added optional donation certificate parameters to finalizeform call
 

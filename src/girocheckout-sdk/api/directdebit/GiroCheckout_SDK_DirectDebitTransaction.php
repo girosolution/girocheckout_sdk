@@ -39,6 +39,7 @@ class GiroCheckout_SDK_DirectDebitTransaction extends GiroCheckout_SDK_AbstractA
     'mandateReceiverName' => FALSE,
     'mandateSequence' => FALSE,
     'pkn' => FALSE,
+    'urlRedirect' => FALSE,
     'urlNotify' => FALSE,
     'pptoken' => FALSE,
   );
@@ -53,7 +54,8 @@ class GiroCheckout_SDK_DirectDebitTransaction extends GiroCheckout_SDK_AbstractA
     'reference' => FALSE,
     'backendTxId' => FALSE,
     'mandateReference' => FALSE,
-  	'resultPayment' => FALSE
+  	'resultPayment' => FALSE,
+    'ppredirect' => FALSE
   );
 
   /*
