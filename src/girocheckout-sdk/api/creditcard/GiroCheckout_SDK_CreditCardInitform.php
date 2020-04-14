@@ -41,12 +41,16 @@ class GiroCheckout_SDK_CreditCardInitform extends GiroCheckout_SDK_AbstractApi i
      * Includes any response field parameter of the API.
      */
     protected $responseFields = array(
-        'rc'=> TRUE,
-        'msg' => TRUE,
-        'reference' => FALSE,
-        'clientSession' => FALSE,
-        'clientConfiguration' => FALSE,
-        'baseUrl' => FALSE,
+      'rc'=> TRUE,
+      'msg' => TRUE,
+      'reference' => FALSE,
+      'clientSession' => FALSE,
+      'clientConfiguration' => FALSE,
+      'cardNumber' => FALSE,
+      'expireMonth' => FALSE,
+      'expireYear' => FALSE,
+      'holder' => FALSE,
+      'baseUrl' => FALSE,
     );
 
     /*
