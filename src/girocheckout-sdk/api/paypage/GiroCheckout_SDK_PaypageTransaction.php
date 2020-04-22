@@ -26,7 +26,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'merchantId'=> TRUE,
         'projectId' => TRUE,
         'merchantTxId' => TRUE,
-        'amount' => TRUE,
+        'amount' => FALSE,
         'currency' => TRUE,
         'purpose' => TRUE,
         'description' => FALSE,
