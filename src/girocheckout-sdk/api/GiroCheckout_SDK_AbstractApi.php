@@ -169,18 +169,22 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
    * This can be used when the method of changing the apache environment variable
    * GIROCHECKOUT_SERVER isn't applicable.
    * Call before submit.
-   * @param integer $p_iServer Server to use, 0=default, 1=Prod, 2=Dev
+   * @param integer $p_iServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter)
+   * @param string $p_strCustServer Optional custom server to use, mostly for local testing (only if $p_iServer is 3).
    */
-  public function setServer($p_iServer) {
+  public function setServer($p_iServer, $p_strCustServer = '') {
     $url = parse_url($this->requestURL);
-    if( $p_iServer == 1 ) {
+    if ($p_iServer == 1) {
       $strSrvUrl = "https://payment.girosolution.de/";
+    }
+    elseif ($p_iServer == 3) {
+      $strSrvUrl = $p_strCustServer;
     }
     else {
       $strSrvUrl = "https://dev.girosolution.de/";
     }
 
-    $this->requestURL = $strSrvUrl . $url['path'];
+    $this->requestURL = rtrim($strSrvUrl, "/") . $url['path'];
   }
 
   /**

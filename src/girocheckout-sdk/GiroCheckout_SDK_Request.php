@@ -54,10 +54,11 @@ class GiroCheckout_SDK_Request {
    * A request method instance has to be passed (see examples section)
    *
    * @param GiroCheckout_SDK_AbstractApi/String $apiCallMethod
-   * @param integer $iUseServer Server to use, 0=default, 1=Prod, 2=Dev
+   * @param integer $iUseServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter)
+   * @param string $strCustServer Optional custom server to use, mostly for local testing (only if $p_iServer is 3).
    * @throws GiroCheckout_SDK_Exception_helper
    */
-  public function __construct($apiCallMethod, $iUseServer = 0) {
+  public function __construct($apiCallMethod, $iUseServer = 0, $strCustServer = '') {
     $Config = GiroCheckout_SDK_Config::getInstance();
 
     if (is_object($apiCallMethod)) {
@@ -83,7 +84,7 @@ class GiroCheckout_SDK_Request {
       }
 
       if( $iUseServer > 0 ) {
-        $this->requestMethod->setServer( $iUseServer );
+        $this->requestMethod->setServer( $iUseServer, $strCustServer );
       }
     }
 
@@ -205,10 +206,11 @@ class GiroCheckout_SDK_Request {
    * This can be used when the method of changing the apache environment variable
    * GIROCHECKOUT_SERVER isn't applicable.
    * Call before submit.
-   * @param integer $p_iServer Server to use, 0=default, 1=Prod, 2=Dev
+   * @param integer $p_iServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter)
+   * @param string $p_strCustServer Optional custom server to use, mostly for local testing (only if $p_iServer is 3).
    */
-  public function setServer( $p_iServer ) {
-    $this->requestMethod->setServer($p_iServer);
+  public function setServer( $p_iServer, $p_strCustServer = '' ) {
+    $this->requestMethod->setServer($p_iServer, $p_strCustServer);
   }
 
   /**

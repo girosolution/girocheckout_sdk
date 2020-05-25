@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.32.1 - 25.05.2020
+- Improved  setServer method. 
+
 #### 2.2.32 - 21.04.2020
 - API parameter amount for payment page is not optional when pagetype=2 (donation) and freeamount=1 or fixedvalues not empty.
 
