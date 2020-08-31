@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.2.33 - 31.08.2020
+- Added support for new API parameter timeout. 
+
 #### 2.2.32.1 - 25.05.2020
 - Improved  setServer method. 
 

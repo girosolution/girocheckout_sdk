@@ -33,6 +33,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'pagetype' => FALSE,
         'expirydate' => FALSE,
         'single' => FALSE,
+        'timeout' => FALSE,
         'type' => FALSE,
         'locale' => 'de',
         'paymethods' => FALSE,
