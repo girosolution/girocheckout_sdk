@@ -297,6 +297,89 @@ class GiroCheckout_SDK_Request {
     return TRUE;
   }
 
+
+  /**
+   * Validates the passed API credentials against the host using the transaction type of the current object.
+   *
+   * @param string $p_strMerchantId Merchant ID to test
+   * @param string $p_strProjectId Project ID to test
+   * @param string $p_strProjectPass Project password to test
+   * @param string $p_strErrorDetails [OUT] Optionally pass variable here that is filled with the readon in case of return FALSE.
+   * @return bool TRUE on successful validation, FALSE on failed validation (=wrong credentials)
+   */
+  public function testCredentials( $p_strMerchantId, $p_strProjectId, $p_strProjectPass, &$p_strErrorDetails = NULL ) {
+    if( !is_null($p_strErrorDetails) ) {
+      $p_strErrorDetails = '';
+    }
+
+    $Config = GiroCheckout_SDK_Config::getInstance();
+
+    try {
+      $this->setSecret($p_strProjectPass);
+
+      // Set some default parameters
+      $this->addParam('merchantId', $p_strMerchantId)
+           ->addParam('projectId', $p_strProjectId)
+           ->addParam('merchantTxId',123456330)
+           ->addParam('amount',-1)  // provoke validation error
+           ->addParam('currency','EUR')
+           ->addParam('purpose','Credential validation')
+           ->addParam('urlRedirect','http://dummy')
+           ->addParam('urlNotify','http://dummy');
+
+      if( $this->requestMethod->getPayMethod() == GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT ) {
+        $this->addParam( 'orderId', 12345 );
+      }
+
+      if ($Config->getConfig('DEBUG_MODE')) {
+        GiroCheckout_SDK_Debug_helper::getInstance()->logParamsSet($this->params);
+      }
+
+      $submitParams = $this->requestMethod->getSubmitParams($this->params);
+
+      if ($this->requestMethod->needsHash()) {
+        $submitParams['hash'] = GiroCheckout_SDK_Hash_helper::getHMACMD5Hash($this->secret, $submitParams);
+      }
+
+      $submitParams['sourceId'] = $this->getHostSourceId() . ';' . $this->getSDKSourceId() . ';';
+
+      if (isset($this->params['sourceId'])) {
+        $submitParams['sourceId'] .= $this->params['sourceId'];
+      }
+      else {
+        $submitParams['sourceId'] .= ';';
+      }
+
+      // Send additional info fields for support reasons
+      if (isset($_SERVER['HTTP_USER_AGENT'])) {
+        $submitParams['userAgent'] = $_SERVER['HTTP_USER_AGENT'];
+      }
+
+      list($header, $body) = GiroCheckout_SDK_Curl_helper::submit($this->requestMethod->getRequestURL(), $submitParams);
+      $this->responseRaw = print_r($header, TRUE) . "\n$body";
+
+      //error_log( "Response Raw: ". $this->responseRaw );
+
+      $response = GiroCheckout_SDK_Curl_helper::getJSONResponseToArray($body);
+
+      if ($response['rc'] == 5000 || $response['rc'] == 5001) {
+        if( !is_null($p_strErrorDetails) ) {
+          $p_strErrorDetails = 'Authentication failure, please double-check your project settings, rc=' . $response['rc'];
+        }
+        return FALSE;
+      }
+      else {
+        return TRUE;
+      }
+    }
+    catch (Exception $e) {
+      if( !is_null($p_strErrorDetails) ) {
+        $p_strErrorDetails = 'Exception, Failure: ' . $e->getMessage();
+      }
+      return FALSE;
+    }
+  }
+
   /**
    * Returns true if the request has succeeded and the response had no ErrorCode. It doesn't check if the transaction
    * or payment has succeeded.

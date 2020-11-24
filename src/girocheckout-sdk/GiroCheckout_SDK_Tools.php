@@ -95,4 +95,28 @@ class GiroCheckout_SDK_Tools {
         return "";
     }
   }
+
+  /**
+   * Validates the passed API credentials against the host.
+   *
+   * @param string $p_strTransactionType Type of transaction to test (is match project)
+   * @param string $p_strMerchantId Merchant ID to test
+   * @param string $p_strProjectId Project ID to test
+   * @param string $p_strProjectPassword Project password to test
+   * @param string $p_strErrorInfo [OUT] Optionally pass variable here that is filled with the readon in case of return FALSE.
+   * @return bool TRUE on successful validation, FALSE on failed validation (=wrong credentials)
+   */
+  public static function testApiCredentials( $p_strTransactionType, $p_strMerchantId, $p_strProjectId, $p_strProjectPassword, &$p_strErrorInfo = NULL ) {
+    try {
+      $testRequest = new GiroCheckout_SDK_Request( $p_strTransactionType );
+    }
+    catch( Exception $e ) {
+      if( !is_null($p_strErrorInfo) ) {
+        $p_strErrorInfo = "Exception on creating Request object, msg=" . $e->getMessage();
+      }
+      return FALSE;
+    }
+
+    return $testRequest->testCredentials( $p_strMerchantId, $p_strProjectId, $p_strProjectPassword, $p_strErrorInfo );
+  }
 }
