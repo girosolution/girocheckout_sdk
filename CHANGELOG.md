@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.1.1 - 01.12.2020
+- Fixed a bug in the new function testApiCredentials.
+
 #### 2.4.1 - 24.11.2020
 - Added new function for testing API credentials: GiroCheckout_SDK_Tools::testApiCredentials().
 - Added optional fields for 3-D Secure 2.0 to creditcard API (available on backend from December 2020) 
