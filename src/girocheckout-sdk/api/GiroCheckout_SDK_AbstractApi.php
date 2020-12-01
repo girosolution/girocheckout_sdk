@@ -311,4 +311,12 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
         return "";
     }
   }
+
+  /**
+   * Return current payment method.
+   * @return mixed
+   */
+  public function getPayMethod() {
+    return $this->m_iPayMethod;
+  }
 }
