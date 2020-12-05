@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.1.2 - 04.12.2020
+- Added support for 3-D Secure 2.0 to payment page calls.
+
 #### 2.4.1.1 - 01.12.2020
 - Fixed a bug in the new function testApiCredentials.
 
