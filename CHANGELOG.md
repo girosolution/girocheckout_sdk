@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.1.3 - 11.12.2020
+- Added error codes for 3-D Secure 2.0 cases.
+
 #### 2.4.1.2 - 04.12.2020
 - Added support for 3-D Secure 2.0 to payment page calls.
 
