@@ -40,7 +40,6 @@ class GiroCheckout_SDK_CreditCardTransaction extends GiroCheckout_SDK_AbstractAp
         'tds2Postcode'    => FALSE,
         'tds2City'        => FALSE,
         'tds2Country'     => FALSE,
-        'tds2Email'       => FALSE,
         'tds2Optional'    => FALSE,
         'pptoken'         => FALSE,
     );

@@ -38,7 +38,6 @@ class GiroCheckout_SDK_CreditCardInitform extends GiroCheckout_SDK_AbstractApi i
       'tds2Postcode'    => FALSE,
       'tds2City'        => FALSE,
       'tds2Country'     => FALSE,
-      'tds2Email'       => FALSE,
       'tds2Optional'    => FALSE,
       'pptoken'         => FALSE,
     );

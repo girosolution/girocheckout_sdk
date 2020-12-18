@@ -26,6 +26,7 @@ try {
 	$request->setSecret($projectPassword);
 
 	$aTdsOptionalInfo = new stdClass();
+	$aTdsOptionalInfo->email = "myemail@example.com"; // Optional email address
 	$aTdsOptionalInfo->addressesMatch = "false"; // Shipping address matches billing address, array( "true", "false" );
 
   $aTdsOptionalInfo->billingAddress = new stdClass();
@@ -86,23 +87,6 @@ try {
   $aTdsOptionalInfo->tdsTransactionAttributes->recurringFrequency = 1234;
   $aTdsOptionalInfo->tdsTransactionAttributes->type = "quasiCash";  // array( "purchase", "checkAcceptance", "accountFunding", "quasiCash", "prepaidActivation" );
 
-  $aTdsOptionalInfo->tdsBrowserData = new stdClass();
-  $aTdsOptionalInfo->tdsBrowserData->browserAcceptHeader = "anything";
-  $aTdsOptionalInfo->tdsBrowserData->browserColorDepth = 24;
-  $aTdsOptionalInfo->tdsBrowserData->browserIP = "192.168.0.43";
-  $aTdsOptionalInfo->tdsBrowserData->browserJavaEnabled = "true";  // array( "true", "false" );
-  $aTdsOptionalInfo->tdsBrowserData->browserJavaScriptEnabled = "true";  // array( "true", "false" );
-  $aTdsOptionalInfo->tdsBrowserData->browserLanguage = "en-US";
-  $aTdsOptionalInfo->tdsBrowserData->browserScreenHeight = 2048;
-  $aTdsOptionalInfo->tdsBrowserData->browserScreenWidth = 4096;
-  $aTdsOptionalInfo->tdsBrowserData->browserTimeZone = "120";  // Differenz in Minuten zwischen der Zeitzone des Kunden und UTC.
-  $aTdsOptionalInfo->tdsBrowserData->browserUserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
-
-  $aTdsOptionalInfo->tdsCommunicationData = new stdClass();
-  $aTdsOptionalInfo->tdsCommunicationData->cResNotificationURL = "https://www.example.com/resnot.php?param1=value1&param2=value2";
-  $aTdsOptionalInfo->tdsCommunicationData->methodNotificationURL = "https://www.example.com/methnot.php?param1=value1&param2=value2";
-  $aTdsOptionalInfo->tdsCommunicationData->challengeWindowSize = "FullScreen";  // array( "size250x400", "size390x400", "size500x600", "size600x400", "FullScreen" );
-
 	$request->addParam('merchantId',$merchantID)
 	        ->addParam('projectId',$projectID)
 	        ->addParam('merchantTxId',123456330)
@@ -110,11 +94,10 @@ try {
 	        ->addParam('currency','EUR')
 	        ->addParam('type','SALE')
 	        ->addParam('purpose','Test Kreditkarte')
-	        ->addParam('tds2Address','Hintere Bergstrasse 89')
-	        ->addParam('tds2Postcode','66899')
-	        ->addParam('tds2City','Traupheim')
+	        ->addParam('tds2Address','Mustergasse 89')
+	        ->addParam('tds2Postcode','77777')
+	        ->addParam('tds2City','Musterort')
 	        ->addParam('tds2Country','DE')
-	        ->addParam('tds2Email','heini@example.com')
 	        ->addParam('tds2Optional',json_encode($aTdsOptionalInfo))
 	        ->addParam('urlRedirect','https://dev.girosolution.de/redirect.php')
 	        ->addParam('urlNotify','https://dev.girosolution.de/notify.php')
