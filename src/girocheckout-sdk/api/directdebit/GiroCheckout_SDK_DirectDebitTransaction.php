@@ -23,25 +23,34 @@ class GiroCheckout_SDK_DirectDebitTransaction extends GiroCheckout_SDK_AbstractA
    * For further information use the API documentation.
    */
   protected $paramFields = array(
-    'merchantId'=> TRUE,
-    'projectId' => TRUE,
-    'merchantTxId' => TRUE,
-    'amount' => TRUE,
-    'currency' => TRUE,
-    'purpose' => TRUE,
-    'type' => FALSE,
-    'bankcode' => FALSE,
-    'bankaccount' => FALSE,
-    'iban' => FALSE,
-    'accountHolder' => FALSE,
+    'merchantId'       => TRUE,
+    'projectId'        => TRUE,
+    'merchantTxId'     => TRUE,
+    'amount'           => TRUE,
+    'currency'         => TRUE,
+    'purpose'          => TRUE,
+    'type'             => FALSE,
+    'bankcode'         => FALSE,
+    'bankaccount'      => FALSE,
+    'iban'             => FALSE,
+    'accountHolder'    => FALSE,
     'mandateReference' => FALSE,
-    'mandateSignedOn' => FALSE,
+    'mandateSignedOn'  => FALSE,
     'mandateReceiverName' => FALSE,
-    'mandateSequence' => FALSE,
-    'pkn' => FALSE,
-    'urlRedirect' => FALSE,
-    'urlNotify' => FALSE,
-    'pptoken' => FALSE,
+    'mandateSequence'  => FALSE,
+    'pkn'              => FALSE,
+    'urlRedirect'      => FALSE,
+    'urlNotify'        => FALSE,
+    'pptoken'          => FALSE,
+    // optional fields for donation certificate:
+    'company'          => FALSE,
+    'lastname'         => FALSE,
+    'firstname'        => FALSE,
+    'address'          => FALSE,
+    'zip'              => FALSE,
+    'city'             => FALSE,
+    'country'          => FALSE,
+    'email'            => FALSE,
   );
 
 
@@ -49,13 +58,13 @@ class GiroCheckout_SDK_DirectDebitTransaction extends GiroCheckout_SDK_AbstractA
    * Includes any response field parameter of the API.
    */
   protected $responseFields = array(
-    'rc'=> TRUE,
-    'msg' => TRUE,
-    'reference' => FALSE,
-    'backendTxId' => FALSE,
+    'rc'               => TRUE,
+    'msg'              => TRUE,
+    'reference'        => FALSE,
+    'backendTxId'      => FALSE,
     'mandateReference' => FALSE,
-  	'resultPayment' => FALSE,
-    'ppredirect' => FALSE
+  	'resultPayment'    => FALSE,
+    'ppredirect'       => FALSE,
   );
 
   /*

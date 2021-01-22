@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.1.5 - 22.01.2021
+- Added the fields for donation certificate info to direct debit payment call.
+
 #### 2.4.1.4 - 18.12.2020
 - Removed email parameter for 3-D Secure 2.0.
 
