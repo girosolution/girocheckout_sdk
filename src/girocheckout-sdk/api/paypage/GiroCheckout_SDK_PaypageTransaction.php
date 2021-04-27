@@ -63,7 +63,11 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'tds2City'        => FALSE,
         'tds2Country'     => FALSE,
         'tds2Optional'    => FALSE,
-      );
+        'mandateReference' => FALSE,
+        'mandateSignedOn' => FALSE,
+        'mandateReceiverName' => FALSE,
+        'mandateSequence' => FALSE,
+    );
 
     /*
      * Includes any response field parameter of the API.
