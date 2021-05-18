@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 #### 2.4.1.6 - 27.04.2021
-- Added the fields direct debit mandate.
+- Added the fields for direct debit mandates to payment page.
 
 #### 2.4.1.5 - 22.01.2021
 - Added the fields for donation certificate info to direct debit payment call.
