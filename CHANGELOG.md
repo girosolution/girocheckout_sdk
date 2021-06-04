@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.1.7 - 04.06.2021
+- Replaced old paydirekt logos with new giropay/paydirekt ones.
+
 #### 2.4.1.6 - 27.04.2021
 - Added the fields for direct debit mandates to payment page.
 

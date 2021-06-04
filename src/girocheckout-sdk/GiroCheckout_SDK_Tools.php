@@ -84,7 +84,7 @@ class GiroCheckout_SDK_Tools {
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYPAL:
         return "Logo_paypal_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT:
-        return "Logo_paydirekt_{$p_iSize}_px.jpg";
+        return "Logo_paydirekt_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_BLUECODE:
         return "Logo_bluecode_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_SOFORTUW:
