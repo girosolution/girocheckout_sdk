@@ -67,6 +67,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'mandateSignedOn' => FALSE,
         'mandateReceiverName' => FALSE,
         'mandateSequence' => FALSE,
+        'informationText' => FALSE,
     );
 
     /*
