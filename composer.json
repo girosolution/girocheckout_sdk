@@ -3,7 +3,7 @@
     "description": "PHP development SDK for connections to GiroCheckout Payment Gateway",
     "type": "library",
     "require": {
-        "php": "^5.2 || ^7.0 || ^7.1 || ^7.2 || ^7.4",
+        "php": "^5.2 || ^7.0 || ^7.1 || ^7.2 || ^7.3 || ^7.4",
         "ext-curl": "*"
     },
     "license": "OSL-3.0",
