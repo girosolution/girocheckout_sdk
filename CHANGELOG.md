@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-#### 2.4.1.8.1 - 21.07.2021
+#### 2.4.1.9 - 21.07.2021
 - Compatibility with PHP up to 7.4.x
 
 #### 2.4.1.8 - 06.07.2021
