@@ -60,6 +60,7 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_CREDITCARD_VOID         = "creditCardVoid";
   const TRANS_TYPE_CREDITCARD_INITFORM     = "creditCardInitform";
   const TRANS_TYPE_CREDITCARD_FINALIZEFORM = "creditCardFinalizeform";
+  const TRANS_TYPE_CREDITCARD_SENDERINFO   = "creditCardSenderInfo";
 
   const TRANS_TYPE_DIRECTDEBIT_TRANSACTION = "directDebitTransaction";
   const TRANS_TYPE_DIRECTDEBIT_GETPKN      = "directDebitGetPKN";
@@ -67,21 +68,25 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_DIRECTDEBIT_CAPTURE     = "directDebitCapture";
   const TRANS_TYPE_DIRECTDEBIT_REFUND      = "directDebitRefund";
   const TRANS_TYPE_DIRECTDEBIT_VOID        = "directDebitVoid";
+  const TRANS_TYPE_DIRECTDEBIT_SENDERINFO  = "directDebitSenderInfo";
 
   const TRANS_TYPE_GIROPAY_BANKSTATUS      = "giropayBankstatus";
   const TRANS_TYPE_GIROPAY_IDCHECK         = "giropayIDCheck";
   const TRANS_TYPE_GIROPAY_TRANSACTION     = "giropayTransaction";
   const TRANS_TYPE_GIROPAY_ISSUERLIST      = "giropayIssuerList";
+  const TRANS_TYPE_GIROPAY_SENDERINFO      = "giropaySenderInfo";
 
   const TRANS_TYPE_IDEAL_ISSUERLIST        = "idealIssuerList";
   const TRANS_TYPE_IDEAL_PAYMENT           = "idealPayment";
   const TRANS_TYPE_IDEAL_REFUND            = "idealRefund";
+  const TRANS_TYPE_IDEAL_SENDERINFO        = "idealSenderInfo";
 
   const TRANS_TYPE_PAYPAL_TRANSACTION      = "paypalTransaction";
 
   const TRANS_TYPE_EPS_BANKSTATUS          = "epsBankstatus";
   const TRANS_TYPE_EPS_TRANSACTION         = "epsTransaction";
   const TRANS_TYPE_EPS_ISSUERLIST          = "epsIssuerList";
+  const TRANS_TYPE_EPS_SENDERINFO          = "epsSenderInfo";
 
   const TRANS_TYPE_GET_TRANSACTIONTOOL     = "getTransactionTool";
 
