@@ -36,13 +36,13 @@ class GiroCheckout_SDK_MaestroCapture extends GiroCheckout_SDK_AbstractApi imple
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => TRUE,
-        'referenceParent' => TRUE,
-        'merchantTxId' => TRUE,
-        'backendTxId' => TRUE,
-        'amount' => TRUE,
-        'currency' => TRUE,
-        'resultPayment' => TRUE,
+        'reference' => FALSE,
+        'referenceParent' => FALSE,
+        'merchantTxId' => FALSE,
+        'backendTxId' => FALSE,
+        'amount' => FALSE,
+        'currency' => FALSE,
+        'resultPayment' => FALSE,
     );
 
     /*

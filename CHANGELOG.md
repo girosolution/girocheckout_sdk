@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.2 - 31.01.2022
+- Support for refund, capture and info for payment page transactions using the payment page reference.
+- Fix in handling of error when capture, refund or void fails.
+
+#### 2.4.1.11 - 11.11.2021
+- Support for the API call senderInfo
+- Purpose parameter in credit card capture
+
 #### 2.4.1.9 - 21.07.2021
 - Compatibility with PHP up to 7.4.x
 

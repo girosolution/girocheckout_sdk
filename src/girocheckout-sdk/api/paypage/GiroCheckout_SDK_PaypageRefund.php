@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api\paydirekt;
+namespace girosolution\GiroCheckout_SDK\api\paypage;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
@@ -7,30 +7,29 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for an Paydirekt API call.
+ * Provides configuration for a payment page API call.
  *
  * @package GiroCheckout
- * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
  */
 
-class GiroCheckout_SDK_PaydirektRefund extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+class GiroCheckout_SDK_PaypageRefund extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
-    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYDIREKT_REFUND;
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYPAGE;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYPAGE_REFUND;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
      * For further information use the API documentation.
      */
     protected $paramFields = array(
-        'merchantId'=> TRUE,
+        'merchantId' => TRUE,
         'projectId' => TRUE,
         'merchantTxId' => TRUE,
         'amount' => TRUE,
         'currency' => TRUE,
-        'purpose' => TRUE,
+        'purpose' => FALSE,
         'reference' => TRUE,
-        'merchantReconciliationReferenceNumber' => FALSE,
+        'txreference' => FALSE,
     );
 
     /*
@@ -39,7 +38,13 @@ class GiroCheckout_SDK_PaydirektRefund extends GiroCheckout_SDK_AbstractApi impl
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => FALSE
+        'reference' => FALSE,
+        'referenceParent' => FALSE,
+        'merchantTxId' => FALSE,
+        'backendTxId' => FALSE,
+        'amount' => FALSE,
+        'currency' => FALSE,
+        'resultPayment' => FALSE,
     );
 
     /*

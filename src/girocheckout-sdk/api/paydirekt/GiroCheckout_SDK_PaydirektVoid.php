@@ -35,7 +35,7 @@ class GiroCheckout_SDK_PaydirektVoid extends GiroCheckout_SDK_AbstractApi implem
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => TRUE
+        'reference' => FALSE
     );
 
     /*

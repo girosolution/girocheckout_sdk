@@ -26,6 +26,7 @@ class GiroCheckout_SDK_Tools_GetTransaction extends GiroCheckout_SDK_AbstractApi
         'merchantId'=> TRUE,
         'projectId' => TRUE,
         'reference' => TRUE,
+        'txreference' => FALSE,
     );
 
 

@@ -34,13 +34,13 @@ class GiroCheckout_SDK_CreditCardVoid extends GiroCheckout_SDK_AbstractApi imple
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => TRUE,
+        'reference' => FALSE,
         'referenceParent' => FALSE,
-        'merchantTxId' => TRUE,
-        'backendTxId' => TRUE,
-        'amount' => TRUE,
-        'currency' => TRUE,
-        'resultPayment' => TRUE,
+        'merchantTxId' => FALSE,
+        'backendTxId' => FALSE,
+        'amount' => FALSE,
+        'currency' => FALSE,
+        'resultPayment' => FALSE,
     );
 
     /*

@@ -38,7 +38,7 @@ class GiroCheckout_SDK_BlueCodeRefund extends GiroCheckout_SDK_AbstractApi imple
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => TRUE
+        'reference' => FALSE
     );
 
     /*

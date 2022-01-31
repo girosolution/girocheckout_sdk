@@ -107,6 +107,8 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_PAYPAGE_TRANSACTION     = "paypageTransaction";
   const TRANS_TYPE_PAYPAGE_PROJECTS        = "paypageProjects";
   const TRANS_TYPE_PAYPAGE_DONATIONCERT    = "paypageDonationCert";
+  const TRANS_TYPE_PAYPAGE_REFUND          = "paypageRefund";
+  const TRANS_TYPE_PAYPAGE_CAPTURE         = "paypageCapture";
 
   const TRANS_TYPE_MAESTRO_TRANSACTION     = "maestroTransaction";
   const TRANS_TYPE_MAESTRO_CAPTURE         = "maestroCapture";
@@ -221,6 +223,10 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_PaypageProjects();
       case self::TRANS_TYPE_PAYPAGE_DONATIONCERT:
         return new GiroCheckout_SDK_PaypageDonationcert();
+      case self::TRANS_TYPE_PAYPAGE_REFUND:
+        return new GiroCheckout_SDK_PaypageRefund();
+      case self::TRANS_TYPE_PAYPAGE_CAPTURE:
+        return new GiroCheckout_SDK_PaypageCapture();
 
       //Maestro apis
       case self::TRANS_TYPE_MAESTRO_TRANSACTION:

@@ -40,7 +40,7 @@ class GiroCheckout_SDK_PaydirektCapture extends GiroCheckout_SDK_AbstractApi imp
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => TRUE
+        'reference' => FALSE
     );
 
     /*
