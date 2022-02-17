@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.3 - 16.02.2022
+- Support for PayPal refund.
+
 #### 2.4.2 - 31.01.2022
 - Support for refund, capture and info for payment page transactions using the payment page reference.
 - Fix in handling of error when capture, refund or void fails.

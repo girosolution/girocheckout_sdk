@@ -82,6 +82,7 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_IDEAL_SENDERINFO        = "idealSenderInfo";
 
   const TRANS_TYPE_PAYPAL_TRANSACTION      = "paypalTransaction";
+  const TRANS_TYPE_PAYPAL_REFUND           = "paypalRefund";
 
   const TRANS_TYPE_EPS_BANKSTATUS          = "epsBankstatus";
   const TRANS_TYPE_EPS_TRANSACTION         = "epsTransaction";
@@ -175,6 +176,8 @@ class GiroCheckout_SDK_TransactionType_helper {
       //PayPal apis
       case self::TRANS_TYPE_PAYPAL_TRANSACTION:
         return new GiroCheckout_SDK_PaypalTransaction();
+      case self::TRANS_TYPE_PAYPAL_REFUND:
+        return new GiroCheckout_SDK_PaypalRefund();
 
       //eps apis
       case self::TRANS_TYPE_EPS_BANKSTATUS:
