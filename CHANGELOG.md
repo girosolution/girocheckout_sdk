@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.5 - 20.04.2022
+- Support for new giropay payments via Paydirekt
+
 #### 2.4.4 - 25.02.2022
 - Support for PayPal reservation (auth) and capture.
 
