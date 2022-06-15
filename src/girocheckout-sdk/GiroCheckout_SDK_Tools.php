@@ -26,7 +26,7 @@ class GiroCheckout_SDK_Tools {
    */
   public static function getCreditCardLogoName($visa_msc = false, $amex = false, $jcb = false) {
 
-    if( $visa_msc == false && $amex == false  && $jcb == false ) {
+    if( !$visa_msc && !$amex  && !$jcb ) {
       return null;
     }
 

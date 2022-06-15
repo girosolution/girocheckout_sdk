@@ -129,7 +129,7 @@ class GiroCheckout_SDK_Curl_helper {
     $headers = array();
     $key = '';
 
-    foreach(explode("\n", $header) as $i => $h) {
+    foreach(explode("\n", $header) as $h) {
       $h = explode(':', $h, 2);
 
       if (isset($h[1]))
@@ -151,7 +151,7 @@ class GiroCheckout_SDK_Curl_helper {
           $headers[$key] .= "\r\n\t".trim($h[0]);
         }
         elseif (!$key) {
-          $headers[0] = trim($h[0]);trim($h[0]);
+          $headers[0] = trim($h[0]);
         }
       }
     }

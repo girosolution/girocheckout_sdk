@@ -88,7 +88,7 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
       if (isset($params[$k]) && strlen($params[$k]) > 0) {
         $submitParams[$k] = $params[$k];
       }
-      elseif ((!isset($params[$k]) || strlen($params[$k]) == 0) && $mandatory) {
+      elseif ((!isset($params[$k]) || strlen($params[$k]) == 0) && $mandatory === TRUE) {
         throw new \Exception('mandatory field ' . $k . ' is unset or empty');
       }
     }

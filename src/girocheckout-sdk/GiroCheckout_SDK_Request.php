@@ -267,10 +267,10 @@ class GiroCheckout_SDK_Request {
       list($header, $body) = GiroCheckout_SDK_Curl_helper::submit($this->requestMethod->getRequestURL(), $submitParams);
       $this->responseRaw = print_r($header, TRUE) . "\n$body";
 
-      $response = GiroCheckout_SDK_Curl_helper::getJSONResponseToArray($body);
+      $reqResponse = GiroCheckout_SDK_Curl_helper::getJSONResponseToArray($body);
 
-      if ($response['rc'] == 5000 || $response['rc'] == 5001) {
-        throw new GiroCheckout_SDK_Exception_helper('Authentication failure, please double-check your project settings', $response['rc'] );
+      if ($reqResponse['rc'] == 5000 || $reqResponse['rc'] == 5001) {
+        throw new GiroCheckout_SDK_Exception_helper('Authentication failure, please double-check your project settings', $reqResponse['rc'] );
       }
       elseif (!isset($header['hash'])) {
         throw new GiroCheckout_SDK_Exception_helper('Hash in response is missing', 5002);
@@ -279,7 +279,7 @@ class GiroCheckout_SDK_Request {
         throw new GiroCheckout_SDK_Exception_helper('Hash mismatch in response', 5002);
       }
       else {
-        $this->response = $this->requestMethod->checkResponse($response);
+        $this->response = $this->requestMethod->checkResponse($reqResponse);
         if ($Config->getConfig('DEBUG_MODE')) {
           GiroCheckout_SDK_Debug_helper::getInstance()->logReplyParams($this->response);
         }
@@ -358,13 +358,11 @@ class GiroCheckout_SDK_Request {
       list($header, $body) = GiroCheckout_SDK_Curl_helper::submit($this->requestMethod->getRequestURL(), $submitParams);
       $this->responseRaw = print_r($header, TRUE) . "\n$body";
 
-      //error_log( "Response Raw: ". $this->responseRaw );
+      $reqResponse = GiroCheckout_SDK_Curl_helper::getJSONResponseToArray($body);
 
-      $response = GiroCheckout_SDK_Curl_helper::getJSONResponseToArray($body);
-
-      if ($response['rc'] == 5000 || $response['rc'] == 5001) {
+      if ($reqResponse['rc'] == 5000 || $reqResponse['rc'] == 5001) {
         if( !is_null($p_strErrorDetails) ) {
-          $p_strErrorDetails = 'Authentication failure, please double-check your project settings, rc=' . $response['rc'];
+          $p_strErrorDetails = 'Authentication failure, please double-check your project settings, rc=' . $reqResponse['rc'];
         }
         return FALSE;
       }

@@ -241,6 +241,9 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_MaestroCapture();
       case self::TRANS_TYPE_MAESTRO_REFUND:
         return new GiroCheckout_SDK_MaestroRefund();
+
+      default:
+        return null;
     }
 
     return null;

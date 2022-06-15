@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.6 - 15.06.2022
+- Bugfix regarding handling of mandatory fields
+
 #### 2.4.5 - 20.04.2022
 - Support for new giropay payments via Paydirekt
 
