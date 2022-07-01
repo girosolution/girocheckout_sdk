@@ -41,6 +41,7 @@ class GiroCheckout_SDK_DirectDebitTransaction extends GiroCheckout_SDK_AbstractA
     'pkn'              => FALSE,
     'urlRedirect'      => FALSE,
     'urlNotify'        => FALSE,
+    'kassenzeichen'    => FALSE,
     'pptoken'          => FALSE,
     // optional fields for donation certificate:
     'company'          => FALSE,

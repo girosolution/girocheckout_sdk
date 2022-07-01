@@ -30,6 +30,7 @@ class GiroCheckout_SDK_IdealPayment extends GiroCheckout_SDK_AbstractApi impleme
                                 'issuer' => FALSE,
                                 'urlRedirect' => TRUE,
                                 'urlNotify' => TRUE,
+                                'kassenzeichen' => FALSE,
                                 'pptoken' => FALSE,
                             );
 

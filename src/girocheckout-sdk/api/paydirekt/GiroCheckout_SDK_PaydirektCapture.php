@@ -31,7 +31,8 @@ class GiroCheckout_SDK_PaydirektCapture extends GiroCheckout_SDK_AbstractApi imp
         'purpose' => TRUE,
         'reference' => TRUE,
         'merchantReconciliationReferenceNumber' => FALSE,
-        'final' => FALSE
+        'final' => FALSE,
+        'kassenzeichen' => FALSE,
     );
 
     /*

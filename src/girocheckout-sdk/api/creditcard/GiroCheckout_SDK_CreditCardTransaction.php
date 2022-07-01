@@ -41,6 +41,7 @@ class GiroCheckout_SDK_CreditCardTransaction extends GiroCheckout_SDK_AbstractAp
         'tds2City'        => FALSE,
         'tds2Country'     => FALSE,
         'tds2Optional'    => FALSE,
+        'kassenzeichen'   => FALSE,
         'pptoken'         => FALSE,
     );
 

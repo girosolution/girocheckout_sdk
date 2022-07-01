@@ -58,6 +58,7 @@ class GiroCheckout_SDK_GiropayTransaction extends GiroCheckout_SDK_AbstractApi i
         'info5Text' => FALSE,
         'urlRedirect' => TRUE,
         'urlNotify' => TRUE,
+        'kassenzeichen' => FALSE,
         'pptoken' => FALSE,
     );
 

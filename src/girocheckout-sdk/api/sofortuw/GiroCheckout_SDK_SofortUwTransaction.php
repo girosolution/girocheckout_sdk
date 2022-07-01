@@ -31,6 +31,7 @@ class GiroCheckout_SDK_SofortUwTransaction extends GiroCheckout_SDK_AbstractApi 
       'purpose'         => TRUE,
       'urlRedirect'     => TRUE,
       'urlNotify'       => TRUE,
+      'kassenzeichen'   => FALSE,
       'pptoken'         => FALSE,
     );
 

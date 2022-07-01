@@ -39,6 +39,7 @@ class GiroCheckout_SDK_DirectDebitTransactionWithPaymentPage extends GiroCheckou
         'pkn' => FALSE,
         'urlRedirect' => TRUE,
         'urlNotify' => TRUE,
+        'kassenzeichen' => FALSE,
         'pptoken' => FALSE,
     );
 

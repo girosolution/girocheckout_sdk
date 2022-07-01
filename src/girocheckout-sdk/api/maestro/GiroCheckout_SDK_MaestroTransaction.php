@@ -35,6 +35,7 @@ class GiroCheckout_SDK_MaestroTransaction extends GiroCheckout_SDK_AbstractApi i
         'recurring' => FALSE,
         'urlRedirect' => TRUE,
         'urlNotify' => TRUE,
+        'kassenzeichen' => FALSE,
         'pptoken' => FALSE,
     );
 

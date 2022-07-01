@@ -29,6 +29,7 @@ class GiroCheckout_SDK_PaypalCapture extends GiroCheckout_SDK_AbstractApi{
         'currency' => TRUE,
         'purpose' => FALSE,
         'reference' => TRUE,
+        'kassenzeichen' => FALSE,
     );
 
     /*

@@ -32,6 +32,7 @@ class GiroCheckout_SDK_EpsTransaction extends GiroCheckout_SDK_AbstractApi imple
         'bic' => FALSE,
         'urlRedirect' => TRUE,
         'urlNotify' => TRUE,
+        'kassenzeichen' => FALSE,
         'pptoken' => FALSE,
     );
 

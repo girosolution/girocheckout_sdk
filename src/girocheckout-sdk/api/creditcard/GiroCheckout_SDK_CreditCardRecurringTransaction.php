@@ -32,6 +32,7 @@ class GiroCheckout_SDK_CreditCardRecurringTransaction extends GiroCheckout_SDK_A
         'pkn' => TRUE,
         'recurring' => TRUE,
         'urlNotify' => FALSE,
+        'kassenzeichen' => FALSE,
     );
 
     /*

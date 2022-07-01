@@ -29,6 +29,7 @@ class GiroCheckout_SDK_CreditCardCapture extends GiroCheckout_SDK_AbstractApi im
         'currency' => TRUE,
         'purpose' => FALSE,
         'reference' => TRUE,
+        'kassenzeichen' => FALSE,
     );
 
     /*

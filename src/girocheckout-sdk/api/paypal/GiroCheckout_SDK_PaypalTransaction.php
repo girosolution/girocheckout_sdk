@@ -21,17 +21,19 @@ class GiroCheckout_SDK_PaypalTransaction extends GiroCheckout_SDK_AbstractApi im
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
      * For further information use the API documentation.
      */
-    protected $paramFields = array(  'merchantId'=> TRUE,
-                                'projectId' => TRUE,
-                                'merchantTxId' => TRUE,
-                                'amount' => TRUE,
-                                'currency' => TRUE,
-                                'purpose' => TRUE,
-                                'type' => 'SALE',
-                                'urlRedirect' => TRUE,
-                                'urlNotify' => TRUE,
-                                'pptoken' => FALSE,
-                            );
+    protected $paramFields = array(
+      'merchantId'=> TRUE,
+      'projectId' => TRUE,
+      'merchantTxId' => TRUE,
+      'amount' => TRUE,
+      'currency' => TRUE,
+      'purpose' => TRUE,
+      'type' => 'SALE',
+      'urlRedirect' => TRUE,
+      'urlNotify' => TRUE,
+      'kassenzeichen' => FALSE,
+      'pptoken' => FALSE,
+    );
 
     /*
      * Includes any response field parameter of the API.

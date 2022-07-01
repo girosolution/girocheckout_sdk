@@ -77,6 +77,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'mandateReceiverName' => FALSE,
         'mandateSequence' => FALSE,
         'informationText' => FALSE,
+        'kassenzeichen'   => FALSE,
     );
 
     /*

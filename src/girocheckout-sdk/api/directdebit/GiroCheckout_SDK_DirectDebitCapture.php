@@ -28,7 +28,8 @@ class GiroCheckout_SDK_DirectDebitCapture extends GiroCheckout_SDK_AbstractApi i
     'merchantTxId' => TRUE,
     'amount' => TRUE,
     'currency' => TRUE,
-    'reference' => TRUE
+    'reference' => TRUE,
+    'kassenzeichen' => FALSE,
   );
 
 

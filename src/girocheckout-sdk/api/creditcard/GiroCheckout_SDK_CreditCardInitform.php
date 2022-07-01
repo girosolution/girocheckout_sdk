@@ -39,6 +39,7 @@ class GiroCheckout_SDK_CreditCardInitform extends GiroCheckout_SDK_AbstractApi i
       'tds2City'        => FALSE,
       'tds2Country'     => FALSE,
       'tds2Optional'    => FALSE,
+      'kassenzeichen'   => FALSE,
       'pptoken'         => FALSE,
     );
 

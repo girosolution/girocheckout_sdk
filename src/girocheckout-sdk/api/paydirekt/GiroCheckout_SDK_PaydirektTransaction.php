@@ -53,6 +53,7 @@ class GiroCheckout_SDK_PaydirektTransaction extends GiroCheckout_SDK_AbstractApi
     'minimumAge'                            => FALSE,
     'urlRedirect'                           => TRUE,
     'urlNotify'                             => TRUE,
+    'kassenzeichen'                         => FALSE,
     'pptoken'                               => FALSE,
   );
 

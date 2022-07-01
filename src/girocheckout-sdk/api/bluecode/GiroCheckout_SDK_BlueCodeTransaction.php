@@ -31,6 +31,7 @@ class GiroCheckout_SDK_BlueCodeTransaction extends GiroCheckout_SDK_AbstractApi 
         'purpose'         => TRUE,  // Bluecode slip
         'urlRedirect'     => TRUE,
         'urlNotify'       => TRUE,
+        'kassenzeichen'   => FALSE,
         'pptoken'         => FALSE,
     );
 

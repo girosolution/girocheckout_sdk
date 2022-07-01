@@ -30,6 +30,7 @@ class GiroCheckout_SDK_PaypageCapture extends GiroCheckout_SDK_AbstractApi imple
         'purpose' => FALSE,
         'reference' => TRUE,
         'txreference' => FALSE,
+        'kassenzeichen' => FALSE,
     );
 
     /*

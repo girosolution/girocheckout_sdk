@@ -28,6 +28,7 @@ class GiroCheckout_SDK_MaestroCapture extends GiroCheckout_SDK_AbstractApi imple
         'amount' => TRUE,
         'currency' => TRUE,
         'reference' => TRUE,
+        'kassenzeichen' => FALSE,
     );
 
     /*
