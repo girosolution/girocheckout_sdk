@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.8 - 02.08.2022
+- Support for the payment page parameter giropayAllowMissingFields for internal use.
+
 #### 2.4.7 - 01.07.2022
 - Added support for new optional Kassenzeichen parameter for all payment methods
 
