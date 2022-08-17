@@ -9,11 +9,10 @@ namespace girosolution\GiroCheckout_SDK\helper;
  * @version $Revision: 184 $ / $Date: 2017-01-18 10:24:16 -0300 (Wed, 18 Jan 2017) $
  */
 class GiroCheckout_SDK_ResponseCode_helper {
-
-  /**
-   * Error code and text mapping.
-   * @var array $code
+  /*
+   * contains the response codes and messages in different languages
    */
+
   private static $code = array( 'DE' => array(
       0 => 'OK',
       4000 => 'Transaktion erfolgreich',
@@ -66,8 +65,8 @@ class GiroCheckout_SDK_ResponseCode_helper {
       5023 => 'purpose ungültig',
       5024 => 'bankcode ungültig',
       5025 => 'bankaccount ungültig',
-      5026 => 'BIC ungültig',
-      5027 => 'IBAN ungültig',
+      5026 => 'bic ungültig',
+      5027 => 'iban ungültig',
       5028 => 'mobile ungültig',
       5029 => 'pkn ungültig',
       5030 => 'amount ungültig',
@@ -148,6 +147,12 @@ class GiroCheckout_SDK_ResponseCode_helper {
       5112 => 'TDS20: Sie müssen zu Optional auch die anderen Felder angeben',
       5113 => 'Paypage: Ungültiges Format des Hinweistextes (API-Beschreibung beachten)',
       5114 => 'Referenz muss Payment Page Transaktion sein',
+      5115 => 'Ungültiger DeliveryType',
+      5116 => 'Ungültiges Kassenzeichen',
+      5117 => 'Ungültige backUrl',
+      5118 => 'Ungültige failUrl',
+      5119 => 'Ungültige successUrl',
+      5120 => 'Ungültige notifyUrl',
       5200 => 'Transaktion nicht akzeptiert',
       5201 => 'Bank offline',
       5202 => 'Bank des Absenders ungültig',
@@ -162,6 +167,7 @@ class GiroCheckout_SDK_ResponseCode_helper {
       5505 => 'Paypage single: Bereits verwendet',
       5506 => 'Ungültige URL',  // CPSP API
       5507 => 'Projekt ist nicht im CPSP-Modus',  // CPSP API
+      5508 => 'Merchant-Limit überschritten',  // CPSP API
       6001 => 'Bank unbekannt',
       6002 => 'Bank unterstützt diesen Transaktionstyp nicht',
       7000 => 'Risikoprüfung positiv',
@@ -178,7 +184,7 @@ class GiroCheckout_SDK_ResponseCode_helper {
       3100 => 'Abbruch durch Benutzer',
       3900 => 'giropay Bank offline',
     ),
-    
+
     'EN' => array(
       0 => 'OK',
       4000 => 'transaction successful',
@@ -231,8 +237,8 @@ class GiroCheckout_SDK_ResponseCode_helper {
       5023 => 'invalid purpose',
       5024 => 'invalid bankcode',
       5025 => 'invalid bankaccount',
-      5026 => 'invalid BIC',
-      5027 => 'invalid IBAN',
+      5026 => 'invalid bic',
+      5027 => 'invalid iban',
       5028 => 'invalid mobile',
       5029 => 'invalid pkn',
       5030 => 'invalid amount',
@@ -313,6 +319,12 @@ class GiroCheckout_SDK_ResponseCode_helper {
       5112 => 'TDS20: You must provide the other fields along with Optional',
       5113 => 'Paypage: invalid format of the notification text (see API documentation)',
       5114 => 'Reference must be payment page transaction',
+      5115 => 'Invalid DeliveryType',
+      5116 => 'Invalid Kassenzeichen',
+      5117 => 'Invalid backUrl',
+      5118 => 'Invalid failUrl',
+      5119 => 'Invalid successUrl',
+      5120 => 'Invalid notifyUrl',
       5200 => 'not accepted transaction',
       5201 => 'bank offline',
       5202 => 'invalid bank of sender',
@@ -327,6 +339,7 @@ class GiroCheckout_SDK_ResponseCode_helper {
       5505 => 'Paypage single: Already used',
       5506 => 'Invalid URL',  // CPSP API
       5507 => 'Project is not in CPSP mode',  // CPSP API
+      5508 => 'Merchant limit exceeded',  // CPSP API
       6001 => 'bank unknown',
       6002 => 'bank does not support this type of transaction',
       7000 => 'risk check positive',
@@ -345,9 +358,8 @@ class GiroCheckout_SDK_ResponseCode_helper {
     ),
   );
 
-  /**
+  /*
    * Returns the message string of an given code in the given language
-   *
    * @param integer code
    * @param String language
    * @return null/String message
@@ -356,7 +368,6 @@ class GiroCheckout_SDK_ResponseCode_helper {
     if( $code < 0 ) {
       return null;
     } //code invalid
-
     $lang = strtoupper( $lang );
 
     if( !array_key_exists( $lang, self::$code ) ) { //language not found

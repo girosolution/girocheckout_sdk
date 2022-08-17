@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.9 - XX.XX.2022 (unpublished)
+- Replaced iDeal logos with new versions
+- Updated list of return and error codes 
+
 #### 2.4.8 - 02.08.2022
 - Support for the payment page parameter giropayAllowMissingFields for internal use.
 
