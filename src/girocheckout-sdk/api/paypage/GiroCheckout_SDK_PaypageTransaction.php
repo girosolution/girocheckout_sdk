@@ -60,7 +60,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'paydirektShippingCity' => FALSE,
         'paydirektShippingCountry' => FALSE,
         'paydirektShippingEmail' => FALSE,
-        'paydirektMerchantReconciliationReferenceNumber'=> FALSE,
+        'paydirektMerchantOrderReferenceNumber'=> FALSE,
         'paydirektCart' => FALSE,
         'paydirektDeliveryType' => FALSE,
         'successUrl' => FALSE,

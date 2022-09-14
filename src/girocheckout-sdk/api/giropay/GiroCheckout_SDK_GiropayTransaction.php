@@ -41,7 +41,7 @@ class GiroCheckout_SDK_GiropayTransaction extends GiroCheckout_SDK_AbstractApi i
         'shippingCity'                         => FALSE,  // nur bei PHYSICAL und MIXED Pflicht
         'shippingCountry'                      => FALSE,  // nur bei PHYSICAL und MIXED Pflicht
         'shippingEmail'                        => FALSE,  // nur bei DIGITAL Pflicht
-        'merchantReconciliationReferenceNumber'=> FALSE,
+        'merchantOrderReferenceNumber'         => FALSE,
         'cart'                                 => FALSE,
         'deliveryType'                         => FALSE,
         'bic' => FALSE,

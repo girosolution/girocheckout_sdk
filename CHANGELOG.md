@@ -2,9 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-#### 2.4.9 - XX.XX.2022 (unpublished)
+#### 2.4.9 - 14.09.2022
 - Replaced iDeal logos with new versions
-- Updated list of return and error codes 
+- Updated list of return and error codes
+- New giropay API: Renamed optional parameter merchantReconciliationReferenceNumber to merchantOrderReferenceNumber.
+- Payment Page: Renamed optional parameter paydirektMerchantReconciliationReferenceNumber to paydirektMerchantOrderReferenceNumber.
 
 #### 2.4.8 - 02.08.2022
 - Support for the payment page parameter giropayAllowMissingFields for internal use.
