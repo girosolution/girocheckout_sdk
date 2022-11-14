@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.10 - 14.11.2022
+- Renamed internal parameter.
+
 #### 2.4.9 - 14.09.2022
 - Replaced iDeal logos with new versions
 - Updated list of return and error codes
