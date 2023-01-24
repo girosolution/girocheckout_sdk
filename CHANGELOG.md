@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.11 - 24.01.2023
+- Added optional parameter qrcodeReturn which returns the payment link as a QR code.
+
 #### 2.4.10 - 14.11.2022
 - Renamed internal parameter.
 

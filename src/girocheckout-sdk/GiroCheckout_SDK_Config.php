@@ -55,7 +55,7 @@ class GiroCheckout_SDK_Config
    * @return string Version number of GiroCheckout SDK
    */
   static public function getVersion() {
-    return '2.4.10';
+    return '2.4.11';
   }
 
   static public function getInstance() {

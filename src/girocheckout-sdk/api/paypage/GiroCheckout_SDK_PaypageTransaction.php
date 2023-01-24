@@ -79,6 +79,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'informationText' => FALSE,
         'kassenzeichen'   => FALSE,
         'paydirektAllowMissingFields' => FALSE,
+        'qrcodeReturn' => FALSE,
     );
 
     /*
@@ -89,6 +90,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'msg' => TRUE,
         'reference' => FALSE,
         'url' => FALSE,
+        'qrcode' => FALSE,
     );
 
     /*
