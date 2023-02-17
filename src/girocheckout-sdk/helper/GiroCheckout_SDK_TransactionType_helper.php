@@ -116,6 +116,9 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_MAESTRO_CAPTURE         = "maestroCapture";
   const TRANS_TYPE_MAESTRO_REFUND          = "maestroRefund";
 
+  const TRANS_TYPE_APPLE_PAY_TRANSACTION   = "applePayTransaction";
+  const TRANS_TYPE_APPLE_PAY_VALIDATION    = "applePayValidation";
+
   /**
    * Returns api call instance
    *
@@ -241,6 +244,12 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_MaestroCapture();
       case self::TRANS_TYPE_MAESTRO_REFUND:
         return new GiroCheckout_SDK_MaestroRefund();
+
+      // Apple pay
+      case self::TRANS_TYPE_APPLE_PAY_TRANSACTION:
+        return new \girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayTransaction();
+      case self::TRANS_TYPE_APPLE_PAY_VALIDATION:
+        return new \girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayValidation();
 
       default:
         return null;

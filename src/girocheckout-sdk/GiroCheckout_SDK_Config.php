@@ -48,6 +48,7 @@ class GiroCheckout_SDK_Config
   const FTG_SERVICES_PAYMENT_METHOD_GIROPAY_KVS = 31;
   const FTG_SERVICES_PAYMENT_METHOD_PAYPAGE = 32;
   const FTG_SERVICES_PAYMENT_METHOD_MAESTRO = 33;
+  const FTG_SERVICES_PAYMENT_METHOD_APPLE_PAY = 36;
   const FTG_SERVICES_PAYMENT_METHOD_INTERNAL = 255;
 
   /**
@@ -55,7 +56,7 @@ class GiroCheckout_SDK_Config
    * @return string Version number of GiroCheckout SDK
    */
   static public function getVersion() {
-    return '2.4.11';
+    return '2.4.12';
   }
 
   static public function getInstance() {
