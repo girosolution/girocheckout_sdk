@@ -21,15 +21,17 @@ class GiroCheckout_SDK_ApplePayTransaction extends GiroCheckout_SDK_AbstractApi 
      * For further information use the API documentation.
      */
     protected $paramFields = array(
-        'merchantId' => TRUE,
-        'projectId' => TRUE,
-        'merchantTxId' => TRUE,
-        'amount' => FALSE,
-        'currency' => TRUE,
-        'purpose' => FALSE,
-        'reference' => FALSE,
-        'urlNotify' => FALSE,
-        'pptoken' => FALSE,
+        'merchantId'        => TRUE,
+        'projectId'         => TRUE,
+        'merchantTxId'      => TRUE,
+        'amount'            => FALSE,
+        'currency'          => TRUE,
+        'purpose'           => FALSE,
+        'type'              => 'SALE',
+        'indicator'         => 'ecom',
+        'urlNotify'         => FALSE,
+        'kassenzeichen'     => FALSE,
+        'urlRedirect'       => TRUE,
         'applePaymentToken' => TRUE,
     );
 
@@ -40,12 +42,14 @@ class GiroCheckout_SDK_ApplePayTransaction extends GiroCheckout_SDK_AbstractApi 
         'rc'=> TRUE,
         'msg' => TRUE,
         'reference' => FALSE,
-        'referenceParent' => FALSE,
         'merchantTxId' => FALSE,
         'backendTxId' => FALSE,
         'amount' => FALSE,
         'currency' => FALSE,
         'resultPayment' => FALSE,
+        'ppredirect' => FALSE,
+        'redirect' => FALSE,
+        'paymethod' => FALSE,
     );
 
     /*

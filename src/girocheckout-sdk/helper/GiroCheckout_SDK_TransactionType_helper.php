@@ -43,6 +43,8 @@ use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageProjects;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroTransaction;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroCapture;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroRefund;
+use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayTransaction;
+use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayValidation;
 
 /**
  * Helper class which manages api call instances
@@ -247,9 +249,9 @@ class GiroCheckout_SDK_TransactionType_helper {
 
       // Apple pay
       case self::TRANS_TYPE_APPLE_PAY_TRANSACTION:
-        return new \girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayTransaction();
+        return new GiroCheckout_SDK_ApplePayTransaction();
       case self::TRANS_TYPE_APPLE_PAY_VALIDATION:
-        return new \girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayValidation();
+        return new GiroCheckout_SDK_ApplePayValidation();
 
       default:
         return null;
