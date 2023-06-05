@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.13 - 05.06.2023
+- Added new parameter customerId to giropay.
+
 #### 2.4.12 - 17.02.2023
 - Added support for ApplePay.
 
