@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.4.14 - 25.07.2023
+- Renamed parameter customerId to giropayCustomerId for giropay.
+
 #### 2.4.13 - 05.06.2023
 - Added new parameter customerId to giropay.
 
