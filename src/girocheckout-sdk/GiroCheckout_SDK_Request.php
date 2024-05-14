@@ -327,10 +327,6 @@ class GiroCheckout_SDK_Request {
            ->addParam('urlRedirect','http://dummy')
            ->addParam('urlNotify','http://dummy');
 
-      if( $this->requestMethod->getPayMethod() == GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT ) {
-        $this->addParam( 'orderId', 12345 );
-      }
-
       if ($Config->getConfig('DEBUG_MODE')) {
         GiroCheckout_SDK_Debug_helper::getInstance()->logParamsSet($this->params);
       }

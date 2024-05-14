@@ -7,16 +7,16 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for an giropay API call.
+ * Provides configuration for a giropay refund API call.
  *
  * @package GiroCheckout
- * @version $Revision: 172 $ / $Date: 2016-10-17 22:56:02 -0300 (Mon, 17 Oct 2016) $
+ * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
  */
 
-class GiroCheckout_SDK_GiropayTransactionWithGiropayID extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+class GiroCheckout_SDK_GiropayRefund extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
     protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROPAY_TRANSACTION;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROPAY_REFUND;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
@@ -29,21 +29,8 @@ class GiroCheckout_SDK_GiropayTransactionWithGiropayID extends GiroCheckout_SDK_
         'amount' => TRUE,
         'currency' => TRUE,
         'purpose' => TRUE,
-        'bic' => FALSE,
-        'iban' => FALSE,
-        'info1Label' => FALSE,
-        'info1Text' => FALSE,
-        'info2Label' => FALSE,
-        'info2Text' => FALSE,
-        'info3Label' => FALSE,
-        'info3Text' => FALSE,
-        'info4Label' => FALSE,
-        'info4Text' => FALSE,
-        'info5Label' => FALSE,
-        'info5Text' => FALSE,
-        'urlRedirect' => TRUE,
-        'urlNotify' => TRUE,
-        'pptoken' => FALSE,
+        'reference' => TRUE,
+        'merchantReconciliationReferenceNumber' => FALSE,
     );
 
     /*
@@ -52,8 +39,7 @@ class GiroCheckout_SDK_GiropayTransactionWithGiropayID extends GiroCheckout_SDK_
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => FALSE,
-        'redirect' => FALSE,
+        'reference' => FALSE
     );
 
     /*
@@ -66,7 +52,6 @@ class GiroCheckout_SDK_GiropayTransactionWithGiropayID extends GiroCheckout_SDK_
         'gcAmount' => TRUE,
         'gcCurrency' => TRUE,
         'gcResultPayment' => TRUE,
-        'gcResultAVS' => TRUE,
         'gcHash' => TRUE,
     );
 
@@ -83,7 +68,7 @@ class GiroCheckout_SDK_GiropayTransactionWithGiropayID extends GiroCheckout_SDK_
     /*
      * The request url of the GiroCheckout API for this request.
      */
-    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/start";
+    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/refund";
 
     /*
      * If true the request method needs a notify page to receive the transactions result.
@@ -99,9 +84,4 @@ class GiroCheckout_SDK_GiropayTransactionWithGiropayID extends GiroCheckout_SDK_
      * The result code number of a successful transaction
      */
     protected $paymentSuccessfulCode = 4000;
-
-    /*
-     * The result code number of a successful avs check
-     */
-    protected $avsSuccessfulCode = 4020;
 }

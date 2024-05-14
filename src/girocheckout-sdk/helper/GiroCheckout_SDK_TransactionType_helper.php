@@ -15,10 +15,11 @@ use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitTr
 use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitCapture;
 use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitRefund;
 use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitVoid;
-use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayBankstatus;
-use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayIDCheck;
 use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayTransaction;
-use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayIssuerList;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayCapture;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayRefund;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropayVoid;
+use girosolution\GiroCheckout_SDK\api\giropay\GiroCheckout_SDK_GiropaySenderInfo;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealIssuerList;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPayment;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPaymentRefund;
@@ -31,10 +32,6 @@ use girosolution\GiroCheckout_SDK\api\tools\GiroCheckout_SDK_Tools_GetTransactio
 use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeCreatePayment;
 use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeCreateEpc;
 use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeGetEpc;
-use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektTransaction;
-use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektCapture;
-use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektRefund;
-use girosolution\GiroCheckout_SDK\api\paydirekt\GiroCheckout_SDK_PaydirektVoid;
 use girosolution\GiroCheckout_SDK\api\sofortuw\GiroCheckout_SDK_SofortUwTransaction;
 use girosolution\GiroCheckout_SDK\api\bluecode\GiroCheckout_SDK_BlueCodeTransaction;
 use girosolution\GiroCheckout_SDK\api\bluecode\GiroCheckout_SDK_BlueCodeRefund;
@@ -72,10 +69,10 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_DIRECTDEBIT_VOID        = "directDebitVoid";
   const TRANS_TYPE_DIRECTDEBIT_SENDERINFO  = "directDebitSenderInfo";
 
-  const TRANS_TYPE_GIROPAY_BANKSTATUS      = "giropayBankstatus";
-  const TRANS_TYPE_GIROPAY_IDCHECK         = "giropayIDCheck";
   const TRANS_TYPE_GIROPAY_TRANSACTION     = "giropayTransaction";
-  const TRANS_TYPE_GIROPAY_ISSUERLIST      = "giropayIssuerList";
+  const TRANS_TYPE_GIROPAY_CAPTURE         = "giropayCapture";
+  const TRANS_TYPE_GIROPAY_REFUND          = "giropayRefund";
+  const TRANS_TYPE_GIROPAY_VOID            = "giropayVoid";
   const TRANS_TYPE_GIROPAY_SENDERINFO      = "giropaySenderInfo";
 
   const TRANS_TYPE_IDEAL_ISSUERLIST        = "idealIssuerList";
@@ -97,11 +94,6 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_GIROCODE_CREATE_PMT     = "giroCodeCreatePayment";
   const TRANS_TYPE_GIROCODE_CREATE_EPC     = "giroCodeCreateEpc";
   const TRANS_TYPE_GIROCODE_GET_EPC        = "giroCodeGetEpc";
-
-  const TRANS_TYPE_PAYDIREKT_TRANSACTION   = "paydirektTransaction";
-  const TRANS_TYPE_PAYDIREKT_CAPTURE       = "paydirektCapture";
-  const TRANS_TYPE_PAYDIREKT_REFUND        = "paydirektRefund";
-  const TRANS_TYPE_PAYDIREKT_VOID          = "paydirektVoid";
 
   const TRANS_TYPE_SOFORT_TRANSACTION      = "sofortuwTransaction";
 
@@ -162,14 +154,16 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_DirectDebitVoid();
 
       //giropay apis
-      case self::TRANS_TYPE_GIROPAY_BANKSTATUS:
-        return new GiroCheckout_SDK_GiropayBankstatus();
-      case self::TRANS_TYPE_GIROPAY_IDCHECK:
-        return new GiroCheckout_SDK_GiropayIDCheck();
       case self::TRANS_TYPE_GIROPAY_TRANSACTION:
         return new GiroCheckout_SDK_GiropayTransaction();
-      case self::TRANS_TYPE_GIROPAY_ISSUERLIST:
-        return new GiroCheckout_SDK_GiropayIssuerList();
+      case self::TRANS_TYPE_GIROPAY_CAPTURE:
+        return new GiroCheckout_SDK_GiropayCapture();
+      case self::TRANS_TYPE_GIROPAY_REFUND:
+        return new GiroCheckout_SDK_GiropayRefund();
+      case self::TRANS_TYPE_GIROPAY_VOID:
+        return new GiroCheckout_SDK_GiropayVoid();
+      case self::TRANS_TYPE_GIROPAY_SENDERINFO:
+        return new GiroCheckout_SDK_GiropaySenderInfo();
 
       //iDEAL apis
       case self::TRANS_TYPE_IDEAL_ISSUERLIST:
@@ -206,16 +200,6 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_GiroCodeCreateEpc();
       case self::TRANS_TYPE_GIROCODE_GET_EPC:
         return new GiroCheckout_SDK_GiroCodeGetEpc();
-
-      //Paydirekt apis
-      case self::TRANS_TYPE_PAYDIREKT_TRANSACTION:
-        return new GiroCheckout_SDK_PaydirektTransaction();
-      case self::TRANS_TYPE_PAYDIREKT_CAPTURE:
-        return new GiroCheckout_SDK_PaydirektCapture();
-      case self::TRANS_TYPE_PAYDIREKT_REFUND:
-        return new GiroCheckout_SDK_PaydirektRefund();
-      case self::TRANS_TYPE_PAYDIREKT_VOID:
-        return new GiroCheckout_SDK_PaydirektVoid();
 
       //Sofort apis
       case self::TRANS_TYPE_SOFORT_TRANSACTION:

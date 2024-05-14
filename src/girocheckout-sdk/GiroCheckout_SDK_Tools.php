@@ -61,11 +61,6 @@ class GiroCheckout_SDK_Tools {
 
     switch( $p_iPaymentMethod ) {
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY:
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_AVS_PAYMENT:
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_AVS:
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_KVS:
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_INVOICE:
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY_DONATE:
         return "Logo_giropay_{$p_iSize}_px.jpg";
 
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_EPS:
@@ -83,8 +78,6 @@ class GiroCheckout_SDK_Tools {
         return "Logo_iDeal_{$p_iSize}_px.jpg";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYPAL:
         return "Logo_paypal_{$p_iSize}_px.png";
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYDIREKT:
-        return "Logo_paydirekt_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_BLUECODE:
         return "Logo_bluecode_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_SOFORTUW:

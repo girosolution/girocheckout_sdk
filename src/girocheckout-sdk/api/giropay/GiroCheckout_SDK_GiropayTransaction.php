@@ -30,6 +30,7 @@ class GiroCheckout_SDK_GiropayTransaction extends GiroCheckout_SDK_AbstractApi i
         'amount' => TRUE,
         'currency' => TRUE,
         'purpose' => TRUE,
+        'type' => FALSE,
         'shoppingCartType'                     => FALSE,
         'shippingAddresseFirstName'            => FALSE, // nur bei PHYSICAL, MIXED und DIGITAL Pflicht
         'shippingAddresseLastName'             => FALSE, // nur bei PHYSICAL, MIXED und DIGITAL Pflicht

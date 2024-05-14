@@ -7,16 +7,16 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for an giropay API call.
+ * Provides configuration for an giropay void API call.
  *
  * @package GiroCheckout
- * @version $Revision: 111 $ / $Date: 2015-06-19 07:49:36 -0300 (Fri, 19 Jun 2015) $
+ * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
  */
 
-class GiroCheckout_SDK_GiropayIDCheck extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+class GiroCheckout_SDK_GiropayVoid extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
     protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROPAY_IDCHECK;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROPAY_VOID;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
@@ -26,20 +26,7 @@ class GiroCheckout_SDK_GiropayIDCheck extends GiroCheckout_SDK_AbstractApi imple
         'merchantId'=> TRUE,
         'projectId' => TRUE,
         'merchantTxId' => TRUE,
-        'bic' => TRUE,
-        'iban' => FALSE,
-        'info1Label' => FALSE,
-        'info1Text' => FALSE,
-        'info2Label' => FALSE,
-        'info2Text' => FALSE,
-        'info3Label' => FALSE,
-        'info3Text' => FALSE,
-        'info4Label' => FALSE,
-        'info4Text' => FALSE,
-        'info5Label' => FALSE,
-        'info5Text' => FALSE,
-        'urlRedirect' => TRUE,
-        'urlNotify' => TRUE,
+        'reference' => TRUE
     );
 
     /*
@@ -48,8 +35,7 @@ class GiroCheckout_SDK_GiropayIDCheck extends GiroCheckout_SDK_AbstractApi imple
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => FALSE,
-        'redirect' => FALSE,
+        'reference' => FALSE
     );
 
     /*
@@ -59,8 +45,9 @@ class GiroCheckout_SDK_GiropayIDCheck extends GiroCheckout_SDK_AbstractApi imple
         'gcReference'=> TRUE,
         'gcMerchantTxId' => TRUE,
         'gcBackendTxId' => TRUE,
-        'gcResultAVS' => TRUE,
-        'gcObvName' => FALSE,
+        'gcAmount' => TRUE,
+        'gcCurrency' => TRUE,
+        'gcResultPayment' => TRUE,
         'gcHash' => TRUE,
     );
 
@@ -77,7 +64,7 @@ class GiroCheckout_SDK_GiropayIDCheck extends GiroCheckout_SDK_AbstractApi imple
     /*
      * The request url of the GiroCheckout API for this request.
      */
-    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/start";
+    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/void";
 
     /*
      * If true the request method needs a notify page to receive the transactions result.
@@ -90,7 +77,7 @@ class GiroCheckout_SDK_GiropayIDCheck extends GiroCheckout_SDK_AbstractApi imple
     protected $hasRedirectURL = TRUE;
 
     /*
-     * The result code number of a successful avs check
+     * The result code number of a successful transaction
      */
-    protected $avsSuccessfulCode = 4020;
+    protected $paymentSuccessfulCode = 4000;
 }
