@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api\sofortuw;
+namespace girosolution\GiroCheckout_SDK\api\klarna;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
@@ -7,16 +7,16 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for a Sofortuw API call.
+ * Provides configuration for a Klarna API call.
  *
  * @package GiroCheckout
- * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
+ * @version $Revision$ / $Date$
  */
+class GiroCheckout_SDK_KlarnaTransaction extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi
+{
 
-class GiroCheckout_SDK_SofortUwTransaction extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
-
-    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_SOFORTUW;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_SOFORT_TRANSACTION;
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_KLARNA;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_KLARNA_TRANSACTION;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
@@ -26,11 +26,24 @@ class GiroCheckout_SDK_SofortUwTransaction extends GiroCheckout_SDK_AbstractApi 
       'merchantId'      => TRUE,
       'projectId'       => TRUE,
       'merchantTxId'    => TRUE,
+      'type'            => 'SALE',
       'amount'          => TRUE,
-      'currency'        => TRUE,
+      'currency'        => 'EUR',
       'purpose'         => TRUE,
       'urlRedirect'     => TRUE,
       'urlNotify'       => TRUE,
+      'locale'          => 'de',
+      'email'           => TRUE,
+      'postalCode'      => TRUE,
+      'dateOfBirth'     => TRUE,
+      'anrede'          => FALSE,
+      'firstName'       => TRUE,
+      'lastName'        => TRUE,
+      'street'          => TRUE,
+      'city'            => TRUE,
+      'phone'           => FALSE,
+      'gender'          => FALSE,
+      'basket'          => TRUE,
       'kassenzeichen'   => FALSE,
       'pptoken'         => FALSE,
     );
@@ -39,22 +52,24 @@ class GiroCheckout_SDK_SofortUwTransaction extends GiroCheckout_SDK_AbstractApi 
      * Includes any response field parameter of the API.
      */
     protected $responseFields = array(
-      'rc'=> TRUE,
-      'msg' => TRUE,
-      'reference' => FALSE,
-      'redirect' => FALSE,
+        'rc' => TRUE,
+        'msg' => TRUE,
+        'reference' => FALSE,
+        'redirect' => FALSE,
     );
 
     /*
      * Includes any notify parameter of the API.
      */
     protected $notifyFields = array(
-        'gcReference'=> TRUE,
+        'gcReference' => TRUE,
         'gcMerchantTxId' => TRUE,
         'gcBackendTxId' => TRUE,
         'gcAmount' => TRUE,
         'gcCurrency' => TRUE,
         'gcResultPayment' => TRUE,
+        'gcResultAVS' => FALSE,
+        'gcObvName' => FALSE,
         'gcHash' => TRUE,
     );
 

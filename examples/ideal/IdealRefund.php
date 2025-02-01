@@ -81,7 +81,7 @@ elseif( $mode == "ref" ) {
   if( !empty($strReference) ) {
     echo "\nOrig Trx Ref: $strReference\n";
 
-    // init giropay transaction and parameters
+    // init ideal transaction and parameters
     try {  
       $request = new GiroCheckout_SDK_Request(GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_IDEAL_REFUND );
       $request->setSecret($projectPassword);

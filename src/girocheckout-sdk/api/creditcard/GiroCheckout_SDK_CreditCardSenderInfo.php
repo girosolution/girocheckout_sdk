@@ -15,7 +15,7 @@ use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper
 
 class GiroCheckout_SDK_CreditCardSenderInfo extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
-    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY;
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROCREDITCARD;
     protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_CREDITCARD_SENDERINFO;
 
     /*

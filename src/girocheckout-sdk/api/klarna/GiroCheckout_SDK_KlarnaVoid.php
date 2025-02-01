@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api\giropay;
+namespace girosolution\GiroCheckout_SDK\api\klarna;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
@@ -7,24 +7,23 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for a giropay API call.
+ * Provides configuration for a Klarna VOID API call.
  *
  * @package GiroCheckout
- * @version $Revision: 274 $ / $Date: 2019-09-06 14:04:44 -0400 (Fri, 06 Sep 2019) $
  */
+class GiroCheckout_SDK_KlarnaVoid extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
-class GiroCheckout_SDK_GiropaySenderInfo extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
-
-    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROPAY_SENDERINFO;
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_KLARNA;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_KLARNA_VOID;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
      * For further information use the API documentation.
      */
     protected $paramFields = array(
-        'merchantId'=> TRUE,
+        'merchantId' => TRUE,
         'projectId' => TRUE,
+        'merchantTxId' => TRUE,
         'reference' => TRUE,
     );
 
@@ -34,9 +33,26 @@ class GiroCheckout_SDK_GiropaySenderInfo extends GiroCheckout_SDK_AbstractApi im
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'accountholder' => FALSE,
-        'iban' => FALSE,
-        'bic' => FALSE,
+        'reference' => FALSE,
+        'referenceParent' => FALSE,
+        'merchantTxId' => FALSE,
+        'backendTxId' => FALSE,
+        'amount' => FALSE,
+        'currency' => FALSE,
+        'resultPayment' => FALSE,
+    );
+
+    /*
+     * Includes any notify parameter of the API.
+     */
+    protected $notifyFields = array(
+        'gcReference'=> TRUE,
+        'gcMerchantTxId' => TRUE,
+        'gcBackendTxId' => TRUE,
+        'gcAmount' => TRUE,
+        'gcCurrency' => TRUE,
+        'gcResultPayment' => TRUE,
+        'gcHash' => TRUE,
     );
 
     /*
@@ -52,16 +68,20 @@ class GiroCheckout_SDK_GiropaySenderInfo extends GiroCheckout_SDK_AbstractApi im
     /*
      * The request url of the GiroCheckout API for this request.
      */
-    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/giropay/senderinfo";
+    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/void";
 
     /*
      * If true the request method needs a notify page to receive the transactions result.
      */
-    protected $hasNotifyURL = FALSE;
+    protected $hasNotifyURL = TRUE;
 
     /*
      * If true the request method needs a redirect page where the customer is sent back to the merchant.
      */
-    protected $hasRedirectURL = FALSE;
+    protected $hasRedirectURL = TRUE;
 
+    /*
+     * The result code number of a successful transaction
+     */
+    protected $paymentSuccessfulCode = 4000;
 }

@@ -1,5 +1,5 @@
 <?php
-namespace girosolution\GiroCheckout_SDK\api\giropay;
+namespace girosolution\GiroCheckout_SDK\api\klarna;
 
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_AbstractApi;
 use girosolution\GiroCheckout_SDK\api\GiroCheckout_SDK_InterfaceApi;
@@ -7,32 +7,27 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for a giropay capture API call.
+ * Provides configuration for a Klarna API call.
  *
  * @package GiroCheckout
- * @version $Revision: 24 $ / $Date: 2014-05-22 14:30:12 +0200 (Do, 22 Mai 2014) $
  */
+class GiroCheckout_SDK_KlarnaRefund extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
-class GiroCheckout_SDK_GiropayCapture extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
-
-    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_GIROPAY_CAPTURE;
+    protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_KLARNA;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_KLARNA_REFUND;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
      * For further information use the API documentation.
      */
     protected $paramFields = array(
-        'merchantId'=> TRUE,
+        'merchantId' => TRUE,
         'projectId' => TRUE,
         'merchantTxId' => TRUE,
         'amount' => TRUE,
         'currency' => TRUE,
-        'purpose' => TRUE,
+        'purpose' => FALSE,
         'reference' => TRUE,
-        'merchantReconciliationReferenceNumber' => FALSE,
-        'final' => FALSE,
-        'kassenzeichen' => FALSE,
     );
 
     /*
@@ -41,7 +36,13 @@ class GiroCheckout_SDK_GiropayCapture extends GiroCheckout_SDK_AbstractApi imple
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'reference' => FALSE
+        'reference' => FALSE,
+        'referenceParent' => FALSE,
+        'merchantTxId' => FALSE,
+        'backendTxId' => FALSE,
+        'amount' => FALSE,
+        'currency' => FALSE,
+        'resultPayment' => FALSE,
     );
 
     /*
@@ -70,7 +71,7 @@ class GiroCheckout_SDK_GiropayCapture extends GiroCheckout_SDK_AbstractApi imple
     /*
      * The request url of the GiroCheckout API for this request.
      */
-    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/capture";
+    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/refund";
 
     /*
      * If true the request method needs a notify page to receive the transactions result.

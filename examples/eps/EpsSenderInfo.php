@@ -23,7 +23,7 @@ $merchantID = 0;        // Your merchant ID (Verkaufer-ID)
 $projectID = 0;         // Your project ID (Projekt-ID)
 $projectPassword = "";  // Your project password
 
-/* giropay Bankstatus transaction and parameters */
+/* eps senderinfo and parameters */
 try {
 	$request = new GiroCheckout_SDK_Request( GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_EPS_SENDERINFO );
 	$request->setSecret($projectPassword);

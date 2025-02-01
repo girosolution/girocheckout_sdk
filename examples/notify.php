@@ -14,7 +14,7 @@ $projectPassword = "secret";
 
 //init notification and pass transaction type, set password and parse the received data
 try {
-  $notify = new GiroCheckout_SDK_Notify( 'giropayTransaction' );
+  $notify = new GiroCheckout_SDK_Notify( 'creditcardTransaction' );
   $notify->setSecret( $projectPassword );
   $notify->parseNotification( $_GET );
 

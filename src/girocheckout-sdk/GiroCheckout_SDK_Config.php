@@ -16,7 +16,6 @@ class GiroCheckout_SDK_Config
   static private $instance = null;
   private $config = null;
 
-  const FTG_SERVICES_PAYMENT_METHOD_GIROPAY = 1;
   const FTG_SERVICES_PAYMENT_METHOD_EPS = 2;
   const FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT = 6;
   const FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT_CHECKED = 7;
@@ -27,10 +26,11 @@ class GiroCheckout_SDK_Config
   const FTG_SERVICES_PAYMENT_METHOD_PAYPAL = 14;
   const FTG_SERVICES_PAYMENT_METHOD_GIROCODEEPC_BASIC = 24;
   const FTG_SERVICES_PAYMENT_METHOD_BLUECODE = 26;
-  const FTG_SERVICES_PAYMENT_METHOD_SOFORTUW = 27;
   const FTG_SERVICES_PAYMENT_METHOD_PAYPAGE = 32;
   const FTG_SERVICES_PAYMENT_METHOD_MAESTRO = 33;
   const FTG_SERVICES_PAYMENT_METHOD_APPLE_PAY = 36;
+  const FTG_SERVICES_PAYMENT_METHOD_PAYBYBANK = 37;
+  const FTG_SERVICES_PAYMENT_METHOD_KLARNA = 38;
   const FTG_SERVICES_PAYMENT_METHOD_INTERNAL = 255;
 
   /**
@@ -38,7 +38,7 @@ class GiroCheckout_SDK_Config
    * @return string Version number of GiroCheckout SDK
    */
   static public function getVersion() {
-    return '2.6.1';
+    return '2.6.3';
   }
 
   static public function getInstance() {

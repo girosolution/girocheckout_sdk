@@ -60,9 +60,6 @@ class GiroCheckout_SDK_Tools {
     }
 
     switch( $p_iPaymentMethod ) {
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROPAY:
-        return "Logo_giropay_{$p_iSize}_px.jpg";
-
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_EPS:
         return "Logo_eps_{$p_iSize}_px.jpg";
 
@@ -80,10 +77,10 @@ class GiroCheckout_SDK_Tools {
         return "Logo_paypal_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_BLUECODE:
         return "Logo_bluecode_{$p_iSize}_px.png";
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_SOFORTUW:
-        return "Logo_sofort_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_MAESTRO:
         return "Logo_maestro_{$p_iSize}_px.png";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_KLARNA:
+        return "Logo_klarna_{$p_iSize}_px.png";
       default:
         return "";
     }

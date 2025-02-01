@@ -69,51 +69,44 @@ The folder "examples" includes example scripts for all supported payment methods
 
 ## List of all request types (Request & Notify)
 
-| API documentation                                            | Request type                          | Object name                                                |
-| ------------------------------------------------------------ | ------------------------------------- | ---------------------------------------------------------- |
-| **eps**|
-| [check eps bank status](en:girocheckout:eps:start#check_bankstatus "wikilink") | epsBankstatus                         | GiroCheckout\_SDK\_EpsBankstatus()                         |
-| [eps issuer list](en:girocheckout:eps:start#eps_issuer_bank_request "wikilink") | epsIssuerList                         | GiroCheckout\_SDK\_EpsIssuerList()                         |
-| [eps transaction](en:girocheckout:eps:start#initialise_eps_payment "wikilink") | epsTransaction                        | GiroCheckout\_SDK\_EpsTransaction()                        |
-| **giropay**                                                  |                                       |                                                            |
-| [check bank status](en:girocheckout:giropay:start#check_bankstatus "wikilink") | giropayBankstatus                     | GiroCheckout\_SDK\_GiropayBankstatus()                     |
-| [giropay-ID](en:girocheckout:giropay:start#initialise_giropay_payment "wikilink") | giropayIDCheck                        | GiroCheckout\_SDK\_GiropayIDCheck()                        |
-| [giropay transaction](en:girocheckout:giropay:start#initialise_giropay_payment "wikilink") | giropayTransaction                    | GiroCheckout\_SDK\_GiropayTransaction()                    |
-| [giropay +giropay-ID](en:girocheckout:giropay:start#initialise_giropay_payment "wikilink") | giropayTransaction                    | GiroCheckout\_SDK\_GiropayTransaction()                    |
-| **iDEAL**                                                    |                                       |                                                            |
-| [iDEAL get issuer list](en:girocheckout:ideal:start#ideal_issuer_bank_request "wikilink") | idealIssuerList                       | GiroCheckout\_SDK\_IdealIssuerList()                       |
-| [iDEAL transaction](en:girocheckout:ideal:start#initialise_ideal_payment "wikilink") | idealPayment                          | GiroCheckout\_SDK\_IdealPayment()                          |
-| **credit card**                                              |                                       |                                                            |
-| [credit card payment](en:girocheckout:creditcard:start#initialise_credit_card_payment "wikilink") | creditCardTransaction                 | GiroCheckout\_SDK\_CreditCardTransaction()                 |
-| [get PKN](en:girocheckout:creditcard:start#pseudo_card_number_pkn "wikilink") | creditCardGetPKN                      | GiroCheckout\_SDK\_CreditCardGetPKN()                      |
-| [recurring credit card payment](en:girocheckout:creditcard:start#recurring_credit_card_payment "wikilink") | creditCardRecurringTransaction        | GiroCheckout\_SDK\_CreditCardRecurringTransaction()        |
-| [credit card void](en:girocheckout:creditcard:start#void "wikilink") | creditCardVoid                        | GiroCheckout\_SDK\_CreditCardVoid()                        |
-| **direct debit**                                             |                                       |                                                            |
-| [direct debit without payment page](en:girocheckout:directdebit:start#direct_debit_without_payment_page "wikilink") | directDebitTransaction                | GiroCheckout\_SDK\_DirectDebitTransaction()                |
+| API documentation                                                                                                           | Request type                          | Object name                                                |
+|-----------------------------------------------------------------------------------------------------------------------------|---------------------------------------|------------------------------------------------------------|
+| **eps**                                                                                                                     |
+| [check eps bank status](en:girocheckout:eps:start#check_bankstatus "wikilink")                                              | epsBankstatus                         | GiroCheckout\_SDK\_EpsBankstatus()                         |
+| [eps issuer list](en:girocheckout:eps:start#eps_issuer_bank_request "wikilink")                                             | epsIssuerList                         | GiroCheckout\_SDK\_EpsIssuerList()                         |
+| [eps transaction](en:girocheckout:eps:start#initialise_eps_payment "wikilink")                                              | epsTransaction                        | GiroCheckout\_SDK\_EpsTransaction()                        |
+| **iDEAL**                                                                                                                   |                                       |                                                            |
+| [iDEAL get issuer list](en:girocheckout:ideal:start#ideal_issuer_bank_request "wikilink")                                   | idealIssuerList                       | GiroCheckout\_SDK\_IdealIssuerList()                       |
+| [iDEAL transaction](en:girocheckout:ideal:start#initialise_ideal_payment "wikilink")                                        | idealPayment                          | GiroCheckout\_SDK\_IdealPayment()                          |
+| **credit card**                                                                                                             |                                       |                                                            |
+| [credit card payment](en:girocheckout:creditcard:start#initialise_credit_card_payment "wikilink")                           | creditCardTransaction                 | GiroCheckout\_SDK\_CreditCardTransaction()                 |
+| [get PKN](en:girocheckout:creditcard:start#pseudo_card_number_pkn "wikilink")                                               | creditCardGetPKN                      | GiroCheckout\_SDK\_CreditCardGetPKN()                      |
+| [recurring credit card payment](en:girocheckout:creditcard:start#recurring_credit_card_payment "wikilink")                  | creditCardRecurringTransaction        | GiroCheckout\_SDK\_CreditCardRecurringTransaction()        |
+| [credit card void](en:girocheckout:creditcard:start#void "wikilink")                                                        | creditCardVoid                        | GiroCheckout\_SDK\_CreditCardVoid()                        |
+| **direct debit**                                                                                                            |                                       |                                                            |
+| [direct debit without payment page](en:girocheckout:directdebit:start#direct_debit_without_payment_page "wikilink")         | directDebitTransaction                | GiroCheckout\_SDK\_DirectDebitTransaction()                |
 | [direct debit payment page](en:girocheckout:directdebit:start#initialise_direct_debit_payment_with_payment_page "wikilink") | directDebitTransactionWithPaymentPage | GiroCheckout\_SDK\_DirectDebitTransactionWithPaymentPage() |
-| [direct debit void](en:girocheckout:directdebit:start#void "wikilink") | directDebitVoid                       | GiroCheckout\_SDK\_DirectDebitVoid()                       |
-| **Maestro**                                                  |                                       |                                                            |
-| [Maestro payment](en:girocheckout:maestro:start#initialize_maestro_payment "wikilink") | maestroTransaction                    | GiroCheckout\_SDK\_MaestroTransaction()                    |
-| [Maestro capture](en:girocheckout:maestro:start#capture "wikilink") | maestroCapture                        | GiroCheckout\_SDK\_MaestroCapture()                        |
-| [Maestro refund](en:girocheckout:maestro:start#refund "wikilink") | maestroRefund                         | GiroCheckout\_SDK\_MaestroRefund()                         |
-| **paydirekt**                                                |                                       |                                                            |
-| [Paydirekt payment](en:girocheckout:paydirekt:start#initialization_of_a_paydirekt_payment "wikilink") | paydirektTransaction                  | GiroCheckout\_SDK\_PaydirektTransaction()                  |
-| [Paydirekt capture](en:girocheckout:paydirekt:start#capture "wikilink") | paydirektCapture                      | GiroCheckout\_SDK\_PaydirektCapture()                      |
-| [Paydirekt refund](en:girocheckout:paydirekt:start#refund "wikilink") | paydirektRefund                       | GiroCheckout\_SDK\_PaydirektRefund()                       |
-| [Paydirekt void](en:girocheckout:paydirekt:start#void "wikilink") | paydirektVoid                         | GiroCheckout\_SDK\_PaydirektVoid()                         |
-| **Payment Page Transaktion**                                 |                                       |                                                            |
-| [Payment through Payment Page](en:girocheckout:paypage:start#payment_initialization_through_the_payment_page "wikilink") | paypageTransaction                    | GiroCheckout\_SDK\_PaypageTransaction()                    |
-| [Project request](en:girocheckout:paypage:start#project_request "wikilink") | paypageProjects                       | GiroCheckout\_SDK\_PaypageProjects()                       |
-| **Sofort**                                                   |                                       |                                                            |
-| [Sofort payment](en:girocheckout:sofortuw:start#initialization_of_a_sofort_payment "wikilink") | sofortuwTransaction                   | GiroCheckout\_SDK\_SofortUwTransaction()                   |
-| **PayPal**                                                   |                                       |                                                            |
-| [PayPal transaction](en:girocheckout:paypal:start#initialise_paypal_payment "wikilink") | paypalTransaction                     | GiroCheckout\_SDK\_PaypalTransaction()                     |
-| **Tools**                                                    |                                       |                                                            |
-| [get transaction information](en:tools:transaction_status "wikilink") | getTransactionTool                    | GiroCheckout\_SDK\_Tools\_GetTransaction()                 |
+| [direct debit void](en:girocheckout:directdebit:start#void "wikilink")                                                      | directDebitVoid                       | GiroCheckout\_SDK\_DirectDebitVoid()                       |
+| **Maestro**                                                                                                                 |                                       |                                                            |
+| [Maestro payment](en:girocheckout:maestro:start#initialize_maestro_payment "wikilink")                                      | maestroTransaction                    | GiroCheckout\_SDK\_MaestroTransaction()                    |
+| [Maestro capture](en:girocheckout:maestro:start#capture "wikilink")                                                         | maestroCapture                        | GiroCheckout\_SDK\_MaestroCapture()                        |
+| [Maestro refund](en:girocheckout:maestro:start#refund "wikilink")                                                           | maestroRefund                         | GiroCheckout\_SDK\_MaestroRefund()                         |
+| **Payment Page Transaktion**                                                                                                |                                       |                                                            |
+| [Payment through Payment Page](en:girocheckout:paypage:start#payment_initialization_through_the_payment_page "wikilink")    | paypageTransaction                    | GiroCheckout\_SDK\_PaypageTransaction()                    |
+| [Project request](en:girocheckout:paypage:start#project_request "wikilink")                                                 | paypageProjects                       | GiroCheckout\_SDK\_PaypageProjects()                       |
+| **PayPal**                                                                                                                  |                                       |                                                            |
+| [PayPal transaction](en:girocheckout:paypal:start#initialise_paypal_payment "wikilink")                                     | paypalTransaction                     | GiroCheckout\_SDK\_PaypalTransaction()                     |
+| **Klarna**                                                                                                                  |                                       |                                                            |
+| Klarna payment or preauthorization                                                                                          | klarnaTransaction                     | GiroCheckout\_SDK\_KlarnaTransaction()                     |
+| Klarna capture                                  | KlarnaCapture                         | GiroCheckout\_SDK\_KlarnaCapture()                         |
+| Klarna refund                                        | KlarnaRefund                          | GiroCheckout\_SDK\_KlarnaRefund()                          |
+| Klarna reversal/void                              | KlarnaVoid                            | GiroCheckout\_SDK\_KlarnaVoid()                            |
+| **Tools**                                                                                                                   |                                       |                                                            |
+| [get transaction information](en:tools:transaction_status "wikilink")                                                       | getTransactionTool                    | GiroCheckout\_SDK\_Tools\_GetTransaction()                 |
 
 ## Implementation of an API call
 
-This implementation example is based on the "examples/giropay/giropayTransaction.php" file.
+This implementation example is based on the "examples/creditcard/creditcardTransaction.php" file.
 
 ### Load SDK
 
@@ -139,7 +132,7 @@ This data is provided in the [GiroCockpit](https://www.girocockpit.de "wikilink"
 ### API call
 
 ```php
-$request = new GiroCheckout_SDK_Request('giropayTransaction');
+$request = new GiroCheckout_SDK_Request('creditcardTransaction');
 $request->setSecret($projectPassword);
 $request->addParam('merchantId',$merchantID)
 	->addParam('projectId',$projectID)
@@ -147,11 +140,8 @@ $request->addParam('merchantId',$merchantID)
 	->addParam('amount',100)
 	->addParam('currency','EUR')
 	->addParam('purpose','Beispieltransaktion')
-	->addParam('bic','TESTDETT421')
-	->addParam('info1Label','Ihre Kundennummer')
-	->addParam('info1Text','0815')
-	->addParam('urlRedirect','https://www.my-domain.de/girocheckout/redirect-giropay')
-	->addParam('urlNotify','https://www.my-domain.de/girocheckout/notify-giropay')
+	->addParam('urlRedirect','https://www.my-domain.de/girocheckout/redirect')
+	->addParam('urlNotify','https://www.my-domain.de/girocheckout/notify')
 	//the hash field is auto generated by the SDK
 	->submit();
 ```
@@ -210,7 +200,7 @@ The password is provided in the [GiroCockpit](https://www.girocockpit.de). It is
 ### Process notification
 
 ```php
-$notify = new GiroCheckout_SDK_Notify('giropayTransaction');
+$notify = new GiroCheckout_SDK_Notify('creditcardTransaction');
 $notify->setSecret($projectPassword);
 $notify->parseNotification($_GET);
 ```
@@ -248,7 +238,7 @@ else {
 }
 ```
 
-The method *paymentSuccessful()* returns true, if the payment has succeeded. In case of a giropay-ID transaction the method *avsSuccessful()* delivers the result of the age verification. Any response parameter can be obtained via the *getResponseParam()* method. 
+The method *paymentSuccessful()* returns true, if the payment has succeeded. Any response parameter can be obtained via the *getResponseParam()* method. 
 
 *sendOkStatus()*, *sendBadRequestStatus()* and *sendOtherStatus()* may be used to respond to the request by sending the appropriate header. 
 

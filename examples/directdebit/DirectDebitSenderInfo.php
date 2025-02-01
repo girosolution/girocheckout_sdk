@@ -23,7 +23,7 @@ $merchantID = 0;        // Your merchant ID (Verkaufer-ID)
 $projectID = 0;         // Your project ID (Projekt-ID)
 $projectPassword = "";  // Your project password
 
-/* giropay Bankstatus transaction and parameters */
+/* directdebit senderinfo transaction and parameters */
 try {
 	$request = new GiroCheckout_SDK_Request( GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_DIRECTDEBIT_SENDERINFO );
 	$request->setSecret($projectPassword);
@@ -35,8 +35,8 @@ try {
 
   echo "<pre>";print_r($request->getResponseRaw());echo "</pre>";
   
-	/* if request was successful show customer weather paying with giropay is possible or not */
-	if($request->requestHasSucceeded()) {
+	/* if request was successful, inform customer */
+  if($request->requestHasSucceeded()) {
     $request->getResponseParam('rc');
     $request->getResponseParam('msg');
     $request->getResponseParam('accountholder');
