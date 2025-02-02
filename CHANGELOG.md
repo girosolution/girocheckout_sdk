@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 #### 2.6.2 - 01.02.2025
-- Removed now unsupported payment methods: giropay, Sofoftüberweisung
+- Removed now unsupported payment methods: giropay, Sofortüberweisung
 - Added support for new payment method Klarna
 
 #### 2.6.1 - 17.05.2024
