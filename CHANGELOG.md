@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.2 - 01.02.2025
+- Removed now unsupported payment methods: giropay, Sofoftüberweisung
+- Added support for new payment method Klarna
+
+#### 2.6.1 - 17.05.2024
+- Implemented order secured for giropay (parameters secureAuth and secureAuthUntil).
+
+#### 2.6.0 - 14.05.2024
+- Refund, capture and void implemented for new giropay
+- Removed now unsupported payment methods: Paydirekt, giropay ID,
+- Removed now unused end points and examples: giropay AVS/KVS, Bankstatus
+
 #### 2.4.14 - 25.07.2023
 - Renamed parameter customerId to giropayCustomerId for giropay.
 
