@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.4 - 02.02.2025
+- Some fixes and additional parameters for Klarna
+
+#### 2.6.3
+- (Version skipped for compatibility with Java and .NET SDKs)
+
 #### 2.6.2 - 01.02.2025
 - Removed now unsupported payment methods: giropay, Sofortüberweisung
 - Added support for new payment method Klarna

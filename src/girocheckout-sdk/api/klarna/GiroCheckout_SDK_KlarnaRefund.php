@@ -21,13 +21,16 @@ class GiroCheckout_SDK_KlarnaRefund extends GiroCheckout_SDK_AbstractApi impleme
      * For further information use the API documentation.
      */
     protected $paramFields = array(
-        'merchantId' => TRUE,
-        'projectId' => TRUE,
-        'merchantTxId' => TRUE,
-        'amount' => TRUE,
-        'currency' => TRUE,
-        'purpose' => FALSE,
-        'reference' => TRUE,
+      'merchantId'      => TRUE,
+      'projectId'       => TRUE,
+      'merchantTxId'    => TRUE,
+      'amount'          => TRUE,
+      'currency'        => TRUE,
+      'purpose'         => FALSE,
+      'reference'       => TRUE,
+      'txreference'     => FALSE,
+      'basket'          => FALSE,
+      'shippingInfo'    => FALSE,
     );
 
     /*

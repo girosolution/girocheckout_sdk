@@ -21,10 +21,15 @@ class GiroCheckout_SDK_KlarnaVoid extends GiroCheckout_SDK_AbstractApi implement
      * For further information use the API documentation.
      */
     protected $paramFields = array(
-        'merchantId' => TRUE,
-        'projectId' => TRUE,
-        'merchantTxId' => TRUE,
-        'reference' => TRUE,
+      'merchantId'      => TRUE,
+      'projectId'       => TRUE,
+      'merchantTxId'    => TRUE,
+      'amount'          => FALSE,
+      'currency'        => FALSE,
+      'purpose'         => FALSE,
+      'reference'       => TRUE,
+      'basket'          => FALSE,
+      'shippingInfo'    => FALSE,
     );
 
     /*

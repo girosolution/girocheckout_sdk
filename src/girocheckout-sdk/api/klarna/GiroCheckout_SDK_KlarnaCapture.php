@@ -30,7 +30,7 @@ class GiroCheckout_SDK_KlarnaCapture extends GiroCheckout_SDK_AbstractApi implem
         'reference' => TRUE,
         'kassenzeichen' => FALSE,
         'basket'  => FALSE,
-        'shipping_info' => FALSE,
+        'shippingInfo' => FALSE,
     );
 
     /*
