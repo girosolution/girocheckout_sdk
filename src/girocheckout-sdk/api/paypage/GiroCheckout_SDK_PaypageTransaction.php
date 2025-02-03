@@ -83,7 +83,7 @@ class GiroCheckout_SDK_PaypageTransaction extends GiroCheckout_SDK_AbstractApi i
         'klarnaBillingAddress' => FALSE, // JSON: email, postalCode, anrede, firstName, lastName, companyName, street, street2, city, state, country, phone
         'klarnaShippingAddress' => FALSE, // Same as billing
         'klarnaCustomerInfo' => FALSE, // JSON: customerId, anrede, dateOfBirth, gender, personalId (type, id, issuedby), contacts
-        'klarnaBasket' => TRUE,
+        'klarnaBasket' => FALSE,
     );
 
     /*
