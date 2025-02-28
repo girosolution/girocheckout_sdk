@@ -92,7 +92,7 @@ $customerInformation = [
         [
             "type" => "DRIVERS_LICENSE",
             "id" => "DL78901234",
-            "issued_by" => "Bayrisches Verkehrsministerium für alle Leute, die gerne Auto fahren und auch die die nicht" // Free text for driver's license
+            "issued_by" => "Bayrisches Verkehrsministerium" // Free text for driver's license
         ]
     ],
     "contacts" => [

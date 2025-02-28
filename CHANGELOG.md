@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.5 - 28.02.2025 ====
+- Added support for payment method Pay by bank
+
 #### 2.6.4 - 02.02.2025
 - Some fixes and additional parameters for Klarna
 
