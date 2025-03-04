@@ -29,6 +29,7 @@ class GiroCheckout_SDK_PaybybankTransaction extends GiroCheckout_SDK_AbstractApi
         'amount' => TRUE,
         'currency' => TRUE,
         'purpose' => TRUE,
+        'type' => "SALE",
         'urlRedirect' => TRUE,
         'urlNotify' => TRUE,
         'kassenzeichen' => FALSE,
