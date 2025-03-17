@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.6 - 17.03.2025 ====
+- Removed Pay by bank payment method, added Direktüberweisung instead
+
 #### 2.6.5.1 - 04.03.2025 ====
 - Added optional type parameter to Pay by bank
 

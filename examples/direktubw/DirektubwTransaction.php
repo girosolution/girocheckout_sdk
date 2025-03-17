@@ -22,14 +22,14 @@ $projectPassword = "";  // Your project password
 
 /* init giropay transaction and parameters */
 try {
-  $request = new GiroCheckout_SDK_Request( GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_PAYBYBANK_TRANSACTION );
+  $request = new GiroCheckout_SDK_Request( GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_DIREKTUBW_TRANSACTION );
   $request->setSecret($projectPassword);
   $request->addParam('merchantId',$merchantID)
         ->addParam('projectId',$projectID)
         ->addParam('merchantTxId',"1234567890123456789012")
         ->addParam('amount',1200)
         ->addParam('currency','EUR')
-        ->addParam('purpose','PayByBank Test ' . random_int(100,999))
+        ->addParam('purpose','Direktüberweisung Test ' . random_int(100,999))
         ->addParam('urlRedirect','https://www.my-domain.de/girocheckout/redirect-creditcard')
         ->addParam('urlNotify','https://www.my-domain.de/girocheckout/redirect-creditcard')
 //	        ->addParam('kassenzeichen','Mein Kassenzeichen')

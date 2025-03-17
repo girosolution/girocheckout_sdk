@@ -36,7 +36,7 @@ use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroCapture;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroRefund;
 use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayTransaction;
 use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayValidation;
-use girosolution\GiroCheckout_SDK\api\paybybank\GiroCheckout_SDK_PaybybankTransaction;
+use girosolution\GiroCheckout_SDK\api\direktubw\GiroCheckout_SDK_DirektubwTransaction;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaTransaction;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaCapture;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaRefund;
@@ -68,7 +68,7 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_DIRECTDEBIT_VOID        = "directDebitVoid";
   const TRANS_TYPE_DIRECTDEBIT_SENDERINFO  = "directDebitSenderInfo";
 
-  const TRANS_TYPE_PAYBYBANK_TRANSACTION   = "paybybankTransaction";
+  const TRANS_TYPE_DIREKTUBW_TRANSACTION   = "direktubwTransaction";
 
   const TRANS_TYPE_KLARNA_TRANSACTION      = "klarnaTransaction";
   const TRANS_TYPE_KLARNA_CAPTURE          = "klarnaCapture";
@@ -219,9 +219,9 @@ class GiroCheckout_SDK_TransactionType_helper {
       case self::TRANS_TYPE_APPLE_PAY_VALIDATION:
         return new GiroCheckout_SDK_ApplePayValidation();
 
-      // Pay by bank
-      case self::TRANS_TYPE_PAYBYBANK_TRANSACTION:
-        return new GiroCheckout_SDK_PaybybankTransaction();
+      // Direktüberweisung
+      case self::TRANS_TYPE_DIREKTUBW_TRANSACTION:
+        return new GiroCheckout_SDK_DirektubwTransaction();
 
       // Klarna
       case self::TRANS_TYPE_KLARNA_TRANSACTION:
