@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.7 - 24.03.2025 ====
+- Added payment methods Apple Pay and Google Pay
+
 #### 2.6.6 - 17.03.2025 ====
 - Removed Pay by bank payment method, added Direktüberweisung instead
 
