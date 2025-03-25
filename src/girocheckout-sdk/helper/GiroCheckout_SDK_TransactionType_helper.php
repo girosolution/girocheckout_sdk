@@ -18,7 +18,11 @@ use girosolution\GiroCheckout_SDK\api\directdebit\GiroCheckout_SDK_DirectDebitVo
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealIssuerList;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPayment;
 use girosolution\GiroCheckout_SDK\api\ideal\GiroCheckout_SDK_IdealPaymentRefund;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageCapture;
 use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageDonationcert;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageProjects;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageRefund;
+use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageTransaction;
 use girosolution\GiroCheckout_SDK\api\paypal\GiroCheckout_SDK_PaypalTransaction;
 use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsBankstatus;
 use girosolution\GiroCheckout_SDK\api\eps\GiroCheckout_SDK_EpsTransaction;
@@ -29,13 +33,17 @@ use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeCreateEp
 use girosolution\GiroCheckout_SDK\api\girocode\GiroCheckout_SDK_GiroCodeGetEpc;
 use girosolution\GiroCheckout_SDK\api\bluecode\GiroCheckout_SDK_BlueCodeTransaction;
 use girosolution\GiroCheckout_SDK\api\bluecode\GiroCheckout_SDK_BlueCodeRefund;
-use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageTransaction;
-use girosolution\GiroCheckout_SDK\api\paypage\GiroCheckout_SDK_PaypageProjects;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroTransaction;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroCapture;
 use girosolution\GiroCheckout_SDK\api\maestro\GiroCheckout_SDK_MaestroRefund;
-use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayTransaction;
-use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayValidation;
+use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayCapture;
+use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayFormTransaction;
+use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayRefund;
+use girosolution\GiroCheckout_SDK\api\applepay\GiroCheckout_SDK_ApplePayVoid;
+use girosolution\GiroCheckout_SDK\api\googlepay\GiroCheckout_SDK_GooglePayCapture;
+use girosolution\GiroCheckout_SDK\api\googlepay\GiroCheckout_SDK_GooglePayFormTransaction;
+use girosolution\GiroCheckout_SDK\api\googlepay\GiroCheckout_SDK_GooglePayRefund;
+use girosolution\GiroCheckout_SDK\api\googlepay\GiroCheckout_SDK_GooglePayVoid;
 use girosolution\GiroCheckout_SDK\api\direktubw\GiroCheckout_SDK_DirektubwTransaction;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaTransaction;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaCapture;
@@ -108,8 +116,15 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_MAESTRO_CAPTURE         = "maestroCapture";
   const TRANS_TYPE_MAESTRO_REFUND          = "maestroRefund";
 
-  const TRANS_TYPE_APPLE_PAY_TRANSACTION   = "applePayTransaction";
-  const TRANS_TYPE_APPLE_PAY_VALIDATION    = "applePayValidation";
+  const TRANS_TYPE_APPLE_PAY_FORM_TRANSACTION = "applePayFormTransaction";
+  const TRANS_TYPE_APPLE_PAY_CAPTURE          = "applePayCapture";
+  const TRANS_TYPE_APPLE_PAY_REFUND           = "applePayRefund";
+  const TRANS_TYPE_APPLE_PAY_VOID             = "applePayVoid";
+
+  const TRANS_TYPE_GOOGLE_PAY_FORM_TRANSACTION  = "googlePayFormTransaction";
+  const TRANS_TYPE_GOOGLE_PAY_CAPTURE           = "googlePayCapture";
+  const TRANS_TYPE_GOOGLE_PAY_REFUND            = "googlePayRefund";
+  const TRANS_TYPE_GOOGLE_PAY_VOID              = "googlePayVoid";
 
   /**
    * Returns api call instance
@@ -214,10 +229,24 @@ class GiroCheckout_SDK_TransactionType_helper {
         return new GiroCheckout_SDK_MaestroRefund();
 
       // Apple pay
-      case self::TRANS_TYPE_APPLE_PAY_TRANSACTION:
-        return new GiroCheckout_SDK_ApplePayTransaction();
-      case self::TRANS_TYPE_APPLE_PAY_VALIDATION:
-        return new GiroCheckout_SDK_ApplePayValidation();
+      case self::TRANS_TYPE_APPLE_PAY_FORM_TRANSACTION:
+        return new GiroCheckout_SDK_ApplePayFormTransaction();
+      case self::TRANS_TYPE_APPLE_PAY_CAPTURE:
+        return new GiroCheckout_SDK_ApplePayCapture();
+      case self::TRANS_TYPE_APPLE_PAY_REFUND:
+        return new GiroCheckout_SDK_ApplePayRefund();
+      case self::TRANS_TYPE_APPLE_PAY_VOID:
+        return new GiroCheckout_SDK_ApplePayVoid();
+
+      // Google pay
+      case self::TRANS_TYPE_GOOGLE_PAY_FORM_TRANSACTION:
+        return new GiroCheckout_SDK_GooglePayFormTransaction();
+      case self::TRANS_TYPE_GOOGLE_PAY_CAPTURE:
+        return new GiroCheckout_SDK_GooglePayCapture();
+      case self::TRANS_TYPE_GOOGLE_PAY_REFUND:
+        return new GiroCheckout_SDK_GooglePayRefund();
+      case self::TRANS_TYPE_GOOGLE_PAY_VOID:
+        return new GiroCheckout_SDK_GooglePayVoid();
 
       // Direktüberweisung
       case self::TRANS_TYPE_DIREKTUBW_TRANSACTION:

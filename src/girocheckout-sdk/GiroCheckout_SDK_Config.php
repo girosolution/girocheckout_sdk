@@ -31,6 +31,7 @@ class GiroCheckout_SDK_Config
   const FTG_SERVICES_PAYMENT_METHOD_APPLE_PAY = 36;
   const FTG_SERVICES_PAYMENT_METHOD_DIREKTUBW = 37;
   const FTG_SERVICES_PAYMENT_METHOD_KLARNA = 38;
+  const FTG_SERVICES_PAYMENT_METHOD_GOOGLE_PAY = 39;
   const FTG_SERVICES_PAYMENT_METHOD_INTERNAL = 255;
 
   /**
@@ -38,7 +39,7 @@ class GiroCheckout_SDK_Config
    * @return string Version number of GiroCheckout SDK
    */
   static public function getVersion() {
-    return '2.6.6';
+    return '2.6.7';
   }
 
   static public function getInstance() {

@@ -7,15 +7,15 @@ use girosolution\GiroCheckout_SDK\GiroCheckout_SDK_Config;
 use girosolution\GiroCheckout_SDK\helper\GiroCheckout_SDK_TransactionType_helper;
 
 /**
- * Provides configuration for an apple pay validation API call.
+ * Provides configuration for a ApplePay capture API call.
  *
  * @package GiroCheckout
  */
 
-class GiroCheckout_SDK_ApplePayValidation extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
+class GiroCheckout_SDK_ApplePayCapture extends GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
     protected $m_iPayMethod = GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_APPLE_PAY;
-    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_APPLE_PAY_VALIDATION;
+    protected $m_strTransType = GiroCheckout_SDK_TransactionType_helper::TRANS_TYPE_APPLE_PAY_CAPTURE;
 
     /*
      * Includes any parameter field of the API call. True parameter are mandatory, false parameter are optional.
@@ -25,9 +25,11 @@ class GiroCheckout_SDK_ApplePayValidation extends GiroCheckout_SDK_AbstractApi i
         'merchantId' => TRUE,
         'projectId' => TRUE,
         'merchantTxId' => TRUE,
-        'merchantIdentifier' => TRUE,
-        'domainName' => TRUE,
-        'displayName' => TRUE,
+        'amount' => TRUE,
+        'currency' => TRUE,
+        'purpose' => FALSE,
+        'reference' => TRUE,
+        'kassenzeichen' => FALSE,
     );
 
     /*
@@ -36,7 +38,13 @@ class GiroCheckout_SDK_ApplePayValidation extends GiroCheckout_SDK_AbstractApi i
     protected $responseFields = array(
         'rc'=> TRUE,
         'msg' => TRUE,
-        'sessionObject' => FALSE,
+        'reference' => FALSE,
+        'referenceParent' => FALSE,
+        'merchantTxId' => FALSE,
+        'backendTxId' => FALSE,
+        'amount' => FALSE,
+        'currency' => FALSE,
+        'resultPayment' => FALSE,
     );
 
     /*
@@ -65,7 +73,7 @@ class GiroCheckout_SDK_ApplePayValidation extends GiroCheckout_SDK_AbstractApi i
     /*
      * The request url of the GiroCheckout API for this request.
      */
-    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/applepay/validation";
+    protected $requestURL = "https://payment.girosolution.de/girocheckout/api/v2/transaction/capture";
 
     /*
      * If true the request method needs a notify page to receive the transactions result.
