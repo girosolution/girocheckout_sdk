@@ -36,6 +36,7 @@ class GiroCheckout_SDK_GooglePayFormTransaction extends GiroCheckout_SDK_Abstrac
         'customerInfo'      => FALSE, // JSON: customerId, anrede, dateOfBirth, gender, personalId (type, id, issuedby), contacts
         'basket'            => TRUE,
         'kassenzeichen'     => FALSE,
+        'pptoken'           => FALSE,
     );
 
     /*

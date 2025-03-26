@@ -35,7 +35,8 @@ class GiroCheckout_SDK_ApplePayFormTransaction extends GiroCheckout_SDK_Abstract
         'shippingAddress' => FALSE, // Same as billing
         'customerInfo'    => FALSE, // JSON: customerId, anrede, dateOfBirth, gender, personalId (type, id, issuedby), contacts
         'basket'          => TRUE,
-        'kassenzeichen'     => FALSE,
+        'kassenzeichen'   => FALSE,
+        'pptoken'         => FALSE,
     );
 
     /*
