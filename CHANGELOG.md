@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.7.2 - 31.03.2025 ====
+- BREAKING CHANGE: Renamed Payment Page parameters because they are also used by Apple Pay and Google Pay
+   klarnaBillingAddress to billingAddress, 
+   klarnaShippingAddress to shippingAddress, 
+   klarnaCustomerInfo to customerInfo,
+   klarnaBasket to basket
+- Corrected parameter order for Klarna to match API docs
+- Corrected parameter order for Direktüberweisung to match API docs
+- Removed indicator parameter for Apple Pay and Google Pay (not used)
+
 #### 2.6.7.1 - 24.03.2025 ====
 - Added payment methods Apple Pay and Google Pay
 

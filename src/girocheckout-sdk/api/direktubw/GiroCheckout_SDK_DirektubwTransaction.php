@@ -30,8 +30,8 @@ class GiroCheckout_SDK_DirektubwTransaction extends GiroCheckout_SDK_AbstractApi
         'currency' => TRUE,
         'purpose' => TRUE,
         'type' => "SALE",
-        'urlRedirect' => TRUE,
         'urlNotify' => TRUE,
+        'urlRedirect' => TRUE,
         'kassenzeichen' => FALSE,
         'pptoken' => FALSE,
     );

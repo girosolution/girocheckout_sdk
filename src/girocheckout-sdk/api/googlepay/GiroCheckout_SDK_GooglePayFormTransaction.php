@@ -28,7 +28,6 @@ class GiroCheckout_SDK_GooglePayFormTransaction extends GiroCheckout_SDK_Abstrac
         'currency'          => TRUE,
         'purpose'           => FALSE,
         'type'              => 'SALE',
-        'indicator'         => 'ecom',
         'urlNotify'         => TRUE,
         'urlRedirect'       => TRUE,
         'billingAddress'    => FALSE, // JSON: email, postalCode, anrede, firstName, lastName, companyName, street, street2, city, state, country, phone
