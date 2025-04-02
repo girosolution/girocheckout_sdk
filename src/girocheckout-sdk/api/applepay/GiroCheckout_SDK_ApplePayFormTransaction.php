@@ -28,8 +28,8 @@ class GiroCheckout_SDK_ApplePayFormTransaction extends GiroCheckout_SDK_Abstract
         'currency'          => TRUE,
         'purpose'           => FALSE,
         'type'              => 'SALE',
-        'urlNotify'         => TRUE,
         'urlRedirect'       => TRUE,
+        'urlNotify'         => TRUE,
         'billingAddress'  => FALSE, // JSON: email, postalCode, anrede, firstName, lastName, companyName, street, street2, city, state, country, phone
         'shippingAddress' => FALSE, // Same as billing
         'customerInfo'    => FALSE, // JSON: customerId, anrede, dateOfBirth, gender, personalId (type, id, issuedby), contacts

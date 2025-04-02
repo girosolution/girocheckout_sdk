@@ -30,8 +30,8 @@ class GiroCheckout_SDK_KlarnaTransaction extends GiroCheckout_SDK_AbstractApi im
       'currency'        => 'EUR',
       'purpose'         => TRUE,
       'type'            => 'SALE',
-      'urlNotify'       => TRUE,
       'urlRedirect'     => TRUE,
+      'urlNotify'       => TRUE,
       'locale'          => 'de',
       'billingAddress'  => FALSE, // JSON: email, postalCode, anrede, firstName, lastName, companyName, street, street2, city, state, country, phone
       'shippingAddress' => FALSE, // Same as billing
