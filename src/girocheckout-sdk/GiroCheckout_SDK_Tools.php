@@ -85,6 +85,8 @@ class GiroCheckout_SDK_Tools {
         return "Logo_apple_pay_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GOOGLE_PAY:
         return "Logo_google_pay_{$p_iSize}_px.png";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_WERO:
+        return "Logo_wero_{$p_iSize}_px.png";
       default:
         return "";
     }

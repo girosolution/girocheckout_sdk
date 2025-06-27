@@ -49,6 +49,7 @@ use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaTransaction;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaCapture;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaRefund;
 use girosolution\GiroCheckout_SDK\api\klarna\GiroCheckout_SDK_KlarnaVoid;
+use girosolution\GiroCheckout_SDK\api\wero\GiroCheckout_SDK_WeroTransaction;
 
 /**
  * Helper class which manages api call instances
@@ -125,6 +126,8 @@ class GiroCheckout_SDK_TransactionType_helper {
   const TRANS_TYPE_GOOGLE_PAY_CAPTURE           = "googlePayCapture";
   const TRANS_TYPE_GOOGLE_PAY_REFUND            = "googlePayRefund";
   const TRANS_TYPE_GOOGLE_PAY_VOID              = "googlePayVoid";
+
+  const TRANS_TYPE_WERO_TRANSACTION             = "weroTransaction";
 
   /**
    * Returns api call instance
@@ -262,6 +265,9 @@ class GiroCheckout_SDK_TransactionType_helper {
       case self::TRANS_TYPE_KLARNA_VOID:
         return new GiroCheckout_SDK_KlarnaVoid();
 
+      // Wero
+      case self::TRANS_TYPE_WERO_TRANSACTION:
+        return new GiroCheckout_SDK_WeroTransaction();
 
       default:
         return null;

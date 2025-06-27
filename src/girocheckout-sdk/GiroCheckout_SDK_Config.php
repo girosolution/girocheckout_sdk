@@ -1,8 +1,9 @@
 <?php
+
 namespace girosolution\GiroCheckout_SDK;
 
-if( defined('__GIROCHECKOUT_SDK_DEBUG__') && __GIROCHECKOUT_SDK_DEBUG__ === TRUE ) {
-  GiroCheckout_SDK_Config::getInstance()->setConfig('DEBUG_MODE',TRUE);
+if (defined('__GIROCHECKOUT_SDK_DEBUG__') && __GIROCHECKOUT_SDK_DEBUG__ === TRUE) {
+  GiroCheckout_SDK_Config::getInstance()->setConfig('DEBUG_MODE', TRUE);
 }
 
 /**
@@ -32,6 +33,7 @@ class GiroCheckout_SDK_Config
   const FTG_SERVICES_PAYMENT_METHOD_DIREKTUBW = 37;
   const FTG_SERVICES_PAYMENT_METHOD_KLARNA = 38;
   const FTG_SERVICES_PAYMENT_METHOD_GOOGLE_PAY = 39;
+  const FTG_SERVICES_PAYMENT_METHOD_WERO = 40;
   const FTG_SERVICES_PAYMENT_METHOD_INTERNAL = 255;
 
   /**
@@ -39,7 +41,7 @@ class GiroCheckout_SDK_Config
    * @return string Version number of GiroCheckout SDK
    */
   static public function getVersion() {
-    return '2.6.7.3';
+    return '2.6.8';
   }
 
   static public function getInstance() {
@@ -47,10 +49,10 @@ class GiroCheckout_SDK_Config
       self::$instance = new self;
 
       // Set default values
-      self::$instance->setConfig('CURLOPT_CAINFO',null);
-      self::$instance->setConfig('CURLOPT_SSL_VERIFYPEER',TRUE);
-      self::$instance->setConfig('CURLOPT_SSL_VERIFYHOST',2);
-      self::$instance->setConfig('CURLOPT_CONNECTTIMEOUT',15);
+      self::$instance->setConfig('CURLOPT_CAINFO', null);
+      self::$instance->setConfig('CURLOPT_SSL_VERIFYPEER', TRUE);
+      self::$instance->setConfig('CURLOPT_SSL_VERIFYHOST', 2);
+      self::$instance->setConfig('CURLOPT_CONNECTTIMEOUT', 15);
 
       // Optional proxy parameters
       self::$instance->setConfig('CURLOPT_PROXY', null);
@@ -58,14 +60,17 @@ class GiroCheckout_SDK_Config
       self::$instance->setConfig('CURLOPT_PROXYUSERPWD', null);
 
       // Debug mode and log
-      self::$instance->setConfig('DEBUG_MODE',FALSE);
-      self::$instance->setConfig('DEBUG_LOG_PATH',dirname(__FILE__).'/log');
+      self::$instance->setConfig('DEBUG_MODE', FALSE);
+      self::$instance->setConfig('DEBUG_LOG_PATH', dirname(__FILE__) . '/log');
     }
     return self::$instance;
   }
 
-  private function __construct(){}
-  private function __clone(){}
+  private function __construct() {
+  }
+
+  private function __clone() {
+  }
 
   /** Getter for config values
    *
@@ -73,7 +78,9 @@ class GiroCheckout_SDK_Config
    * @return null
    */
   public function getConfig($key) {
-    if (isset($this->config[$key])) return $this->config[$key];
+    if (isset($this->config[$key])) {
+      return $this->config[$key];
+    }
     return null;
   }
 
@@ -83,7 +90,7 @@ class GiroCheckout_SDK_Config
    * @param $value
    * @return bool
    */
-  public function setConfig($key,$value) {
+  public function setConfig($key, $value) {
 
     switch ($key) {
       //curl options
@@ -92,12 +99,12 @@ class GiroCheckout_SDK_Config
       case 'CURLOPT_SSL_VERIFYHOST':
       case 'CURLOPT_CONNECTTIMEOUT':
 
-      // Proxy
+        // Proxy
       case 'CURLOPT_PROXY':
       case 'CURLOPT_PROXYPORT':
       case 'CURLOPT_PROXYUSERPWD':
 
-      // Debug
+        // Debug
       case 'DEBUG_LOG_PATH':
       case 'DEBUG_MODE':
         $this->config[$key] = $value;

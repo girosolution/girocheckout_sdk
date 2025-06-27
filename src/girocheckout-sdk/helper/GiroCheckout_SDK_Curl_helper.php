@@ -38,12 +38,6 @@ class GiroCheckout_SDK_Curl_helper {
       curl_setopt($ch, CURLOPT_CAINFO, str_replace('\\', '/', __GIROSOLUTION_SDK_CERT__));
     }
 
-    // For Windows environments
-    if( defined('__GIROSOLUTION_SDK_SSL_VERIFY_OFF__') && __GIROSOLUTION_SDK_SSL_VERIFY_OFF__ ) {
-      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    }
-
     if ($Config->getConfig('CURLOPT_SSL_VERIFYPEER')) {
       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $Config->getConfig('CURLOPT_SSL_VERIFYPEER'));
     }
@@ -54,6 +48,12 @@ class GiroCheckout_SDK_Curl_helper {
 
     if ($Config->getConfig('CURLOPT_SSL_VERIFYHOST')) {
       curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $Config->getConfig('CURLOPT_SSL_VERIFYHOST'));
+    }
+
+    // Optionally turn off validation of SSL certificate and host
+    if( defined('__GIROSOLUTION_SDK_SSL_VERIFY_OFF__') && __GIROSOLUTION_SDK_SSL_VERIFY_OFF__ ) {
+      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     }
 
     if ($Config->getConfig('CURLOPT_CONNECTTIMEOUT')) {
@@ -158,4 +158,4 @@ class GiroCheckout_SDK_Curl_helper {
 
     return $headers;
   }
-} 
+}
