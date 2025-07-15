@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.8 - 15.07.2025 ====
+- Added support for the new payment method WERO
+
 #### 2.6.7.3 - 02.04.2025 ====
 - Another parameter order correction for Apple Pay, Google Pay, Direktüberweisung and Klarna
 
