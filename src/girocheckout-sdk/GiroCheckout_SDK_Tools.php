@@ -79,6 +79,8 @@ class GiroCheckout_SDK_Tools {
         return "Logo_bluecode_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_MAESTRO:
         return "Logo_maestro_{$p_iSize}_px.png";
+      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_DIREKTUBW:
+        return "Logo_direktubw_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_KLARNA:
         return "Logo_klarna_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_APPLE_PAY:

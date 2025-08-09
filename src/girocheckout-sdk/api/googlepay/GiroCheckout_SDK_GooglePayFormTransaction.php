@@ -30,7 +30,7 @@ class GiroCheckout_SDK_GooglePayFormTransaction extends GiroCheckout_SDK_Abstrac
         'type'              => 'SALE',
         'urlRedirect'       => TRUE,
         'urlNotify'         => TRUE,
-        'billingAddress'    => FALSE, // JSON: email, postalCode, anrede, firstName, lastName, companyName, street, street2, city, state, country, phone
+        'billingAddress'    => TRUE, // JSON: email, postalCode, anrede, firstName, lastName, companyName, street, street2, city, state, country, phone
         'shippingAddress'   => FALSE, // Same as billing
         'customerInfo'      => FALSE, // JSON: customerId, anrede, dateOfBirth, gender, personalId (type, id, issuedby), contacts
         'basket'            => TRUE,
