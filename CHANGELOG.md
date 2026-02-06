@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.9 - 06.02.2026 ====
+- Added support for WERO refunds
+
+#### 2.6.8.2 - 03.12.2025 ====
+- Apple Pay and Google Pay no longer require BillingAddress as a mandatory field
+
+#### 2.6.8.1 - 08.08.2025
+- Apple Pay and Google Pay now require BillingAddress as a mandatory field
+- Updated logos for Apple Pay, Google Pay and Direktüberweisung
+
 #### 2.6.8 - 15.07.2025 ====
 - Added support for the new payment method WERO
 
