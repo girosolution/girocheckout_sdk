@@ -29,7 +29,8 @@ class GiroCheckout_SDK_DirectDebitRefund extends GiroCheckout_SDK_AbstractApi im
     'amount' => TRUE,
     'currency' => TRUE,
     'purpose' => FALSE,
-    'reference' => TRUE
+    'reference' => TRUE,
+    'kassenzeichen' => FALSE,
   );
 
 
@@ -57,7 +58,7 @@ class GiroCheckout_SDK_DirectDebitRefund extends GiroCheckout_SDK_AbstractApi im
   		'gcResultPayment' => TRUE,
   		'gcHash' => TRUE,
   );
-  
+
   /*
    * True if a hash is needed. It will be automatically added to the post data.
    */
@@ -67,7 +68,7 @@ class GiroCheckout_SDK_DirectDebitRefund extends GiroCheckout_SDK_AbstractApi im
    * The field name in which the hash is sent to the notify or redirect page.
   */
   protected $notifyHashName = 'gcHash';
-  
+
   /*
    * The request url of the GiroCheckout API for this request.
    */

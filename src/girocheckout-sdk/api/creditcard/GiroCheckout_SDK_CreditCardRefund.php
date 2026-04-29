@@ -29,6 +29,7 @@ class GiroCheckout_SDK_CreditCardRefund extends GiroCheckout_SDK_AbstractApi imp
         'currency' => TRUE,
         'purpose' => FALSE,
         'reference' => TRUE,
+        'kassenzeichen' => FALSE,
     );
 
     /*

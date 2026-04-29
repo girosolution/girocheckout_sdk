@@ -2,23 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
-#### 2.6.9 - 06.02.2026 ====
+#### 2.6.10 - 29.04.2026
+- Correction Kassenzeichen field in refund of creditcard, direct debit, Apple Pay, Google Pay, Klarna and Wero.
+
+#### 2.6.9 - 06.02.2026
 - Added support for WERO refunds
 
-#### 2.6.8.2 - 03.12.2025 ====
+#### 2.6.8.2 - 03.12.2025
 - Apple Pay and Google Pay no longer require BillingAddress as a mandatory field
 
 #### 2.6.8.1 - 08.08.2025
 - Apple Pay and Google Pay now require BillingAddress as a mandatory field
 - Updated logos for Apple Pay, Google Pay and Direktüberweisung
 
-#### 2.6.8 - 15.07.2025 ====
+#### 2.6.8 - 15.07.2025
 - Added support for the new payment method WERO
 
-#### 2.6.7.3 - 02.04.2025 ====
+#### 2.6.7.3 - 02.04.2025
 - Another parameter order correction for Apple Pay, Google Pay, Direktüberweisung and Klarna
 
-#### 2.6.7.2 - 31.03.2025 ====
+#### 2.6.7.2 - 31.03.2025
 - BREAKING CHANGE: Renamed Payment Page parameters because they are also used by Apple Pay and Google Pay
    klarnaBillingAddress to billingAddress, 
    klarnaShippingAddress to shippingAddress, 
@@ -28,16 +31,16 @@ All notable changes to this project will be documented in this file.
 - Corrected parameter order for Direktüberweisung to match API docs
 - Removed indicator parameter for Apple Pay and Google Pay (not used)
 
-#### 2.6.7.1 - 24.03.2025 ====
+#### 2.6.7.1 - 24.03.2025
 - Added payment methods Apple Pay and Google Pay
 
-#### 2.6.6 - 17.03.2025 ====
+#### 2.6.6 - 17.03.2025
 - Removed Pay by bank payment method, added Direktüberweisung instead
 
-#### 2.6.5.1 - 04.03.2025 ====
+#### 2.6.5.1 - 04.03.2025
 - Added optional type parameter to Pay by bank
 
-#### 2.6.5 - 28.02.2025 ====
+#### 2.6.5 - 28.02.2025
 - Added support for payment method Pay by bank
 
 #### 2.6.4 - 02.02.2025

@@ -29,6 +29,9 @@ class GiroCheckout_SDK_ApplePayRefund extends GiroCheckout_SDK_AbstractApi imple
         'currency' => TRUE,
         'purpose' => FALSE,
         'reference' => TRUE,
+        'kassenzeichen' => FALSE,
+        'basket'          => FALSE,
+        'shippingInfo'    => FALSE,
     );
 
     /*

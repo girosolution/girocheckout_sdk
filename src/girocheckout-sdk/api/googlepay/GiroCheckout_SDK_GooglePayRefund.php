@@ -29,6 +29,9 @@ class GiroCheckout_SDK_GooglePayRefund extends GiroCheckout_SDK_AbstractApi impl
         'currency' => TRUE,
         'purpose' => FALSE,
         'reference' => TRUE,
+        'kassenzeichen' => FALSE,
+        'basket'          => FALSE,
+        'shippingInfo'    => FALSE,
     );
 
     /*

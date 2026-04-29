@@ -29,6 +29,7 @@ class GiroCheckout_SDK_KlarnaRefund extends GiroCheckout_SDK_AbstractApi impleme
       'purpose'         => FALSE,
       'reference'       => TRUE,
       'txreference'     => FALSE,
+      'kassenzeichen'   => FALSE,
       'basket'          => FALSE,
       'shippingInfo'    => FALSE,
     );

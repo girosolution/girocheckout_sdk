@@ -29,6 +29,7 @@ class GiroCheckout_SDK_WeroRefund extends GiroCheckout_SDK_AbstractApi implement
     'currency' => TRUE,
     'purpose' => FALSE,
     'reference' => TRUE,
+    'kassenzeichen' => FALSE,
   );
 
   /*
