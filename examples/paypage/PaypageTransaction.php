@@ -211,10 +211,6 @@ try {
 //    ->addParam('tds2City','Traupheim')
 //    ->addParam('tds2Country','DE')
 //    ->addParam('tds2Optional',json_encode($aTdsOptionalInfo))
-//    ->addParam('klarnaBillingAddress', json_encode($billingAddress))
-//    ->addParam('klarnaShippingAddress', json_encode($shippingAddress))
-//    ->addParam('klarnaCustomerInfo', json_encode($customerInformation))
-//    ->addParam('klarnaBasket', json_encode($basket))
 
     ->addParam('successUrl', 'https://dev.girosolution.de/redirect.php?success=1')
     //->addParam('backUrl','https://dev.girosolution.de/redirect.php?back=1')

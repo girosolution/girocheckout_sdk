@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.5.11 - 13.05.2026
+- Payment methods bluecode, eps, iDEAL, Maestro and Klarna removed
+
 #### 2.6.10 - 29.04.2026
 - Correction Kassenzeichen field in refund of creditcard, direct debit, Apple Pay, Google Pay, Klarna and Wero.
 

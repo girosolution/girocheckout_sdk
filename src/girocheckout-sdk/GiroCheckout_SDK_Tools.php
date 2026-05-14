@@ -60,9 +60,6 @@ class GiroCheckout_SDK_Tools {
     }
 
     switch( $p_iPaymentMethod ) {
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_EPS:
-        return "Logo_eps_{$p_iSize}_px.jpg";
-
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT:
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT_CHECKED:
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIRODIRECTDEBIT_GUARANTEE:
@@ -71,18 +68,10 @@ class GiroCheckout_SDK_Tools {
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GIROCREDITCARD:
         return "visa_msc_amex_{$p_iSize}px.png";  // Usually better obtained through GiroCheckout_SDK_Tools::getCreditCardLogoName()
 
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_IDEAL:
-        return "Logo_iDeal_{$p_iSize}_px.jpg";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_PAYPAL:
         return "Logo_paypal_{$p_iSize}_px.png";
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_BLUECODE:
-        return "Logo_bluecode_{$p_iSize}_px.png";
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_MAESTRO:
-        return "Logo_maestro_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_DIREKTUBW:
         return "Logo_direktubw_{$p_iSize}_px.png";
-      case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_KLARNA:
-        return "Logo_klarna_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_APPLE_PAY:
         return "Logo_apple_pay_{$p_iSize}_px.png";
       case GiroCheckout_SDK_Config::FTG_SERVICES_PAYMENT_METHOD_GOOGLE_PAY:
