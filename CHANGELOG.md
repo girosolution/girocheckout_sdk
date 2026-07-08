@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-#### 2.5.11 - 13.05.2026
+#### 2.6.12 - 07.07.2026
+ - Environment Presets gc1 und gc2 eingebaut
+ - Logging um logMessage erweitert
+
+#### 2.6.11 - 13.05.2026
 - Payment methods bluecode, eps, iDEAL, Maestro and Klarna removed
 
 #### 2.6.10 - 29.04.2026

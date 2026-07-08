@@ -27,20 +27,18 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
   protected $m_strTransType;  // String that identifies the specific transaction type
 
   /**
-   * For development use only
+   * Class constructor
    */
   function __construct() {
     try {
       if ((function_exists('apache_getenv') && strlen(apache_getenv('GIROCHECKOUT_SERVER'))) ||
         (getenv('GIROCHECKOUT_SERVER'))
       ) {
-        $url = parse_url($this->requestURL);
-
         if (function_exists('apache_getenv') && strlen(apache_getenv('GIROCHECKOUT_SERVER'))) {
-          $this->requestURL = apache_getenv('GIROCHECKOUT_SERVER') . $url['path'];
+          $this->applyServer(apache_getenv('GIROCHECKOUT_SERVER'));
         }
         else {
-          $this->requestURL = getenv('GIROCHECKOUT_SERVER') . $url['path'];
+          $this->applyServer(getenv('GIROCHECKOUT_SERVER'));
         }
       }
     }
@@ -166,25 +164,82 @@ class GiroCheckout_SDK_AbstractApi implements GiroCheckout_SDK_InterfaceApi {
 
   /**
    * Set URL to post requests to dev.girosolution.de.
-   * This can be used when the method of changing the apache environment variable
-   * GIROCHECKOUT_SERVER isn't applicable.
+   * This can be used when the method of changing the apache environment variable GIROCHECKOUT_SERVER isn't applicable.
    * Call before submit.
-   * @param integer $p_iServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter)
+   * @param integer|string $p_iServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter),
+   *  or alias gc1-dev, gc1-prod, gc2-preprod, gc2-prod.
    * @param string $p_strCustServer Optional custom server to use, mostly for local testing (only if $p_iServer is 3).
    */
   public function setServer($p_iServer, $p_strCustServer = '') {
-    $url = parse_url($this->requestURL);
-    if ($p_iServer == 1) {
-      $strSrvUrl = "https://payment.girosolution.de/";
+    if (is_string($p_iServer) && strlen(trim($p_iServer)) > 0) {
+      $strSrvUrl = $p_iServer;
+    }
+    elseif ($p_iServer == 1) {
+      $strSrvUrl = 'gc1-prod';
     }
     elseif ($p_iServer == 3) {
       $strSrvUrl = $p_strCustServer;
     }
     else {
-      $strSrvUrl = "https://dev.girosolution.de/";
+      $strSrvUrl = 'gc1-dev';
     }
 
-    $this->requestURL = rtrim($strSrvUrl, "/") . $url['path'];
+    $this->applyServer($strSrvUrl);
+  }
+
+  /**
+   * Applies a server alias or explicit base URL to the current request endpoint.
+   *
+   * @param string $p_strServer Server alias or explicit base URL.
+   * @return void
+   */
+  protected function applyServer($p_strServer) {
+    $strBaseUrl = $this->resolveServerBaseUrl($p_strServer);
+    $strPath = $this->getRequestPathFromBaseUrl($this->requestURL);
+    $this->requestURL = rtrim($strBaseUrl, '/') . '/' . ltrim($strPath, '/');
+  }
+
+  /**
+   * Resolves supported environment aliases to their corresponding base URL.
+   *
+   * @param string $p_strServer Server alias or explicit base URL.
+   * @return string
+   */
+  protected function resolveServerBaseUrl($p_strServer) {
+    $strServer = trim($p_strServer);
+
+    switch ($strServer) {
+      case 'gc1-dev':
+        return 'https://dev.girosolution.de/girocheckout/api/v2/';
+      case 'gc1-prod':
+        return 'https://payment.girosolution.de/girocheckout/api/v2/';
+      case 'gc2-preprod':
+        return 'https://preprod-payment.girocheckout.de/girocheckout/v2/';
+      case 'gc2-prod':
+        return 'https://payment.girocheckout.de/girocheckout/v2/';
+      default:
+        return $strServer;
+    }
+  }
+
+  /**
+   * Extracts the endpoint path without the GiroCheckout API base prefix.
+   *
+   * @param string $p_strUrl Full request URL.
+   * @return string
+   */
+  protected function getRequestPathFromBaseUrl($p_strUrl) {
+    $strUrl = preg_replace('#^https?://[^/]+/#', '', $p_strUrl);
+
+    if (strpos($strUrl, 'girocheckout/api/v2/') === 0) {
+      return substr($strUrl, strlen('girocheckout/api/v2/'));
+    }
+    elseif (strpos($strUrl, 'girocheckout/v2/') === 0) {
+      return substr($strUrl, strlen('girocheckout/v2/'));
+    }
+
+    $url = parse_url($p_strUrl);
+    return isset($url['path']) ? ltrim($url['path'], '/') : '';
   }
 
   /**

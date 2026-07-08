@@ -70,6 +70,10 @@ class GiroCheckout_SDK_Request {
         GiroCheckout_SDK_Debug_helper::getInstance()->init('request-' . $callMethod);
         GiroCheckout_SDK_Debug_helper::getInstance()->logTransaction($callMethod);
       }
+
+      if( $iUseServer > 0 ) {
+        $this->requestMethod->setServer( $iUseServer, $strCustServer );
+      }
     }
     elseif (is_string($apiCallMethod)) {
       if ($Config->getConfig('DEBUG_MODE')) {
@@ -206,7 +210,8 @@ class GiroCheckout_SDK_Request {
    * This can be used when the method of changing the apache environment variable
    * GIROCHECKOUT_SERVER isn't applicable.
    * Call before submit.
-   * @param integer $p_iServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter)
+   * @param integer|string $p_iServer Server to use, 0=default, 1=Prod, 2=Dev, 3=custom URL for local use (specified in 2nd parameter),
+   *  or alias gc1-dev, gc1-prod, gc2-preprod, gc2-prod.
    * @param string $p_strCustServer Optional custom server to use, mostly for local testing (only if $p_iServer is 3).
    */
   public function setServer( $p_iServer, $p_strCustServer = '' ) {

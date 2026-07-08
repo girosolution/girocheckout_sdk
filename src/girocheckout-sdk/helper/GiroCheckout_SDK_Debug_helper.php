@@ -41,6 +41,7 @@ class GiroCheckout_SDK_Debug_helper {
     'notifyParams' => "[notify params @%s]\r\n%s\r\n\r\n",
     'notifyOutput' => "[notify output]\r\n%s\r\n\r\n",
     'exception' => "[exception @%s]\r\n%s\r\n\r\n",
+    'message' => "[log message @%s]\r\n%s\r\n\r\n",
   );
 
 
@@ -208,6 +209,16 @@ class GiroCheckout_SDK_Debug_helper {
    */
   public function logException($message) {
     $this->writeLog(sprintf($this->debugStrings['exception'], date('Y-m-d H:i:s'), $message));
+  }
+
+  /**
+   * Write text message to log
+   *
+   * @param mixed $message
+   * @return void
+   */
+  public function logMessage($message) {
+    $this->writeLog(sprintf($this->debugStrings['message'], date('Y-m-d H:i:s'), $message));
   }
 
   /**

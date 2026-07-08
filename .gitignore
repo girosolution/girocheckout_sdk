@@ -1,4 +1,7 @@
 /composer.lock
 /.idea/
+/.vscode/
 /vendor/
 /test_examples/
+.vscode/settings.json
+.DS_Store
