@@ -30,7 +30,11 @@ class GiroCheckout_SDK_Curl_helper {
     curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      'Expect:',
+      'X-GiroCheckout-SDK-Version: ' . GiroCheckout_SDK_Config::getVersion(),
+      'X-GiroCheckout-SDK-Typ: php packagist'
+    ));
 
     // For Windows environments
     if( defined('__GIROSOLUTION_SDK_CERT__') ) {

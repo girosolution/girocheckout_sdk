@@ -2,8 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.13 - 24.07.2026
+ - Versions- und SDK-Header für Statistik und Support eingebaut
+
 #### 2.6.12 - 07.07.2026
- - Environment Presets gc1 und gc2 eingebaut
+ - Environment Presets gc1-dev, gc1-prod, gc2-preprod und gc2-prod eingebaut
  - Logging um logMessage erweitert
 
 #### 2.6.11 - 13.05.2026
