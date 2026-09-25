@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+#### 2.6.14 - 25.09.2026
+ - Sicherstellen, dass Content-Type der Aufrufe application/x-www-form-urlencoded ist
+
 #### 2.6.13 - 24.07.2026
  - Versions- und SDK-Header für Statistik und Support eingebaut
 

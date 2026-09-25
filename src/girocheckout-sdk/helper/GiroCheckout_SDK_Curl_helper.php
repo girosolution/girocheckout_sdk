@@ -27,11 +27,12 @@ class GiroCheckout_SDK_Curl_helper {
 
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HEADER, 1);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
       'Expect:',
+      'Content-Type: application/x-www-form-urlencoded',
       'X-GiroCheckout-SDK-Version: ' . GiroCheckout_SDK_Config::getVersion(),
       'X-GiroCheckout-SDK-Typ: php packagist'
     ));
